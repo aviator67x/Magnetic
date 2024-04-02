@@ -9,6 +9,7 @@ import Combine
 import UIKit
 
 class ViewController: UIViewController {
+    
     // - MARK: Private properties
     private let magneticView = MagneticView()
     private let model = MagneticViewModel()
@@ -24,7 +25,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
-        model.getData()
     }
 }
 
@@ -35,15 +35,19 @@ private extension ViewController {
             .sink { [weak self] action in
                 switch action {
                 case .didPressButton:
-                    print("Hi")
+                    self?.model.measureMagnetism()
+                case .showWifi:
+                    let vc = WifiViewController()
+//                    self?.navigationController?.pushViewController(vc, animated: true)
                 }
             }
             .store(in: &cancellables)
 
         model.dataPublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-//                self?.magneticView.updateDash()
+            .dropFirst()
+            .sink { [weak self] value in
+                self?.magneticView.rotateArrow(angle: value)
             }
             .store(in: &cancellables)
     }

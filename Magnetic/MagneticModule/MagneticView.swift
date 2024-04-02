@@ -12,6 +12,7 @@ import UIKit
 
 enum MagneticViewActions {
     case didPressButton
+    case showWifi
 }
 
 final class MagneticView: UIView {
@@ -33,6 +34,7 @@ final class MagneticView: UIView {
     private let magnetView = UIImageView()
     private let dashboardView = UIImageView()
     private let arrowView = UIImageView()
+    private let dotView = UIImageView()
     private let magnetismLabel = UILabel()
     private let button = UIButton()
     
@@ -54,42 +56,52 @@ final class MagneticView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func startSearch() {
-        UIImageView.animate(withDuration: 2) {
-            let transformation = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.5))
-            self.arrowView.transform = transformation
-        }
-    }
-    
-    func stopSearch() {
-        UIImageView.animate(withDuration: 0.5) {
-            let transformation = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.0))
-            self.arrowView.transform = transformation
-        }
-    }
-
     // - MARK: Objc
     @objc
     func onButtonTap() {
-        buttonState == .search ? startSearch() : stopSearch()
+        actionSubject.send(.didPressButton)
         buttonState.toggle()
         button.setTitle(buttonState == .search ? "Seearch" : "Stop", for: .normal)
-        magnetismLabel.text = buttonState == .search ? "Search checking" : "50 µT"
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.actionSubject.send(.showWifi)
+        }
+    }
+    
+    func rotateArrow(angle: CGFloat) {
+        buttonState == .stop ? clockwise(angle: angle) : counterClockwise()
+        let intAngle = Int(angle * 40)
+        let stringAngle = String(intAngle)
+        magnetismLabel.text = buttonState == .search ? "Search checking" : "\(stringAngle) µT"
     }
 }
 
 // - MARK: private extension
 private extension MagneticView {
+    func clockwise(angle: CGFloat) {
+        UIImageView.animate(withDuration: 2) {
+            let transformation = CGAffineTransform(rotationAngle: angle)
+            self.arrowView.transform = transformation
+        }
+    }
+    
+    func counterClockwise() {
+        UIImageView.animate(withDuration: 0.5) {
+            let transformation = CGAffineTransform(rotationAngle: 0)
+            self.arrowView.transform = transformation
+        }
+    }
+    
     func setupViews() {
         magnetView.image = UIImage(named: "magnet")
         dashboardView.image = UIImage(named: "dashboard")
         
-        arrowView.image = UIImage(named: "arrow")
+        arrowView.image = UIImage(named: "thinArrow")
         let xOffset = arrowView.frame.size.width / 2
         let yOffset = arrowView.frame.size.height / 2
-//        arrowView.layer.anchorPoint = CGPoint(x: xOffset, y: 0)
-//        arrowView.layer.anchorPoint = CGPoint(x: xOffset, y: yOffset)
-//        arrowView.setAnchorPoint(CGPoint(x: xOffset, y: 0))
+        arrowView.setAnchorPoint(CGPoint(x: 1, y: 0.9))
+        
+        dotView.image = UIImage(named: "dot")
         
         magnetismLabel.text = buttonState == .search ? "Search checking" : "50 µT"
         magnetismLabel.font = UIFont.systemFont(ofSize: 17)
@@ -113,9 +125,15 @@ private extension MagneticView {
             $0.height.equalTo(self.screenSize.width / 1.9)
         }
         
-        addSubview(arrowView) {
-            $0.centerX.equalToSuperview().offset(-40)
+        addSubview(dotView) {
+            $0.centerX.equalToSuperview()
             $0.centerY.equalTo(dashboardView.snp.bottom)
+        }
+        
+        addSubview(arrowView) {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(dotView.snp.centerY)
+            $0.width.equalTo(screenSize.width * 0.25)
         }
         
         addSubview(magnetismLabel) {
@@ -131,4 +149,3 @@ private extension MagneticView {
         }
     }
 }
-

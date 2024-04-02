@@ -9,4 +9,5 @@ import Foundation
 
 protocol DataManager {
     func getData() -> [WifiDataModel]
+    func getMagnetism() -> CGFloat
 }
