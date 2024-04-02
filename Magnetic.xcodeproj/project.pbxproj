@@ -21,6 +21,7 @@
 		A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199582BBC3E6D0024210C /* WifiDataModel.swift */; };
 		A251995F2BBC439B0024210C /* FetchedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251995E2BBC439B0024210C /* FetchedDataManager.swift */; };
 		A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199602BBC43D30024210C /* DataManagerProtocol.swift */; };
+		A25199632BBC4CFB0024210C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199622BBC4CFB0024210C /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		A25199582BBC3E6D0024210C /* WifiDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiDataModel.swift; sourceTree = "<group>"; };
 		A251995E2BBC439B0024210C /* FetchedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedDataManager.swift; sourceTree = "<group>"; };
 		A25199602BBC43D30024210C /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		A25199622BBC4CFB0024210C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				A251993E2BBC33F00024210C /* Assets.xcassets */,
 				A25199562BBC3E5E0024210C /* WiFiData.json */,
 				A25199432BBC33F00024210C /* Info.plist */,
+				A25199622BBC4CFB0024210C /* MainViewController.swift */,
 			);
 			path = Magnetic;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
 				A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */,
 				A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */,
+				A25199632BBC4CFB0024210C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
