@@ -5,15 +5,17 @@
 //  Created by Andrew Kasilov on 02.04.2024.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 class ViewController: UIViewController {
+    // - MARK: Private properties
     private let magneticView = MagneticView()
     private let model = MagneticViewModel()
 
     private var cancellables = Set<AnyCancellable>()
 
+    // - MARK: Lifecycle
     override func loadView() {
         super.loadView()
         view = magneticView

@@ -19,6 +19,8 @@
 		A25199532BBC3DEB0024210C /* MockedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199522BBC3DEB0024210C /* MockedDataManager.swift */; };
 		A25199572BBC3E5E0024210C /* WiFiData.json in Resources */ = {isa = PBXBuildFile; fileRef = A25199562BBC3E5E0024210C /* WiFiData.json */; };
 		A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199582BBC3E6D0024210C /* WifiDataModel.swift */; };
+		A251995F2BBC439B0024210C /* FetchedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251995E2BBC439B0024210C /* FetchedDataManager.swift */; };
+		A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199602BBC43D30024210C /* DataManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		A25199522BBC3DEB0024210C /* MockedDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedDataManager.swift; sourceTree = "<group>"; };
 		A25199562BBC3E5E0024210C /* WiFiData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WiFiData.json; sourceTree = "<group>"; };
 		A25199582BBC3E6D0024210C /* WifiDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiDataModel.swift; sourceTree = "<group>"; };
+		A251995E2BBC439B0024210C /* FetchedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedDataManager.swift; sourceTree = "<group>"; };
+		A25199602BBC43D30024210C /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +73,12 @@
 			isa = PBXGroup;
 			children = (
 				A251994E2BBC3D560024210C /* App */,
+				A251995C2BBC42D70024210C /* Services */,
 				A251994F2BBC3D6F0024210C /* MagneticModule */,
 				A251993B2BBC33EF0024210C /* Main.storyboard */,
 				A25199402BBC33F00024210C /* LaunchScreen.storyboard */,
 				A251993E2BBC33F00024210C /* Assets.xcassets */,
+				A25199562BBC3E5E0024210C /* WiFiData.json */,
 				A25199432BBC33F00024210C /* Info.plist */,
 			);
 			path = Magnetic;
@@ -93,11 +99,27 @@
 				A25199392BBC33EF0024210C /* MagneticViewController.swift */,
 				A251994C2BBC3D270024210C /* MagneticView.swift */,
 				A25199502BBC3DCF0024210C /* MagenticViewModel.swift */,
-				A25199522BBC3DEB0024210C /* MockedDataManager.swift */,
-				A25199562BBC3E5E0024210C /* WiFiData.json */,
-				A25199582BBC3E6D0024210C /* WifiDataModel.swift */,
 			);
 			path = MagneticModule;
+			sourceTree = "<group>";
+		};
+		A251995C2BBC42D70024210C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A251995D2BBC43340024210C /* DataService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A251995D2BBC43340024210C /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				A25199602BBC43D30024210C /* DataManagerProtocol.swift */,
+				A25199582BBC3E6D0024210C /* WifiDataModel.swift */,
+				A25199522BBC3DEB0024210C /* MockedDataManager.swift */,
+				A251995E2BBC439B0024210C /* FetchedDataManager.swift */,
+			);
+			path = DataService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,10 +203,12 @@
 				A25199532BBC3DEB0024210C /* MockedDataManager.swift in Sources */,
 				A251994D2BBC3D270024210C /* MagneticView.swift in Sources */,
 				A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */,
+				A251995F2BBC439B0024210C /* FetchedDataManager.swift in Sources */,
 				A25199362BBC33EF0024210C /* AppDelegate.swift in Sources */,
 				A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */,
 				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
 				A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */,
+				A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

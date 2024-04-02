@@ -8,16 +8,6 @@
 import Foundation
 import Combine
 
-protocol DataManager {
-    func getData() -> [WifiDataModel]
-}
-
-final class FetchedDataManager: DataManager {
-    func getData() -> [WifiDataModel] {
-        return [WifiDataModel]()
-    }
-}
-
 final class MagneticViewModel{
     private(set) lazy var dataPublisher = dataValue.eraseToAnyPublisher()
     private lazy var dataValue = CurrentValueSubject<[WifiDataModel], Never>([])
