@@ -34,6 +34,7 @@ final class MagneticView: UIView {
     private let magnetView = UIImageView()
     private let dashboardView = UIImageView()
     private let arrowView = UIImageView()
+    private let dotView = UIImageView()
     private let magnetismLabel = UILabel()
     private let button = UIButton()
     
@@ -95,13 +96,12 @@ private extension MagneticView {
         magnetView.image = UIImage(named: "magnet")
         dashboardView.image = UIImage(named: "dashboard")
         
-        arrowView.image = UIImage(named: "arrow")
+        arrowView.image = UIImage(named: "thinArrow")
         let xOffset = arrowView.frame.size.width / 2
         let yOffset = arrowView.frame.size.height / 2
-//        arrowView.layer.anchorPoint = CGPoint(x: xOffset, y: 0)
-//        arrowView.layer.anchorPoint = CGPoint(x: xOffset, y: yOffset)
-        arrowView.setAnchorPoint(CGPoint(x: 0.95, y: 0.9))
-//        arrowView.layer.anchorPoint = CGPoint(x: 1, y: 1)
+        arrowView.setAnchorPoint(CGPoint(x: 1, y: 0.9))
+        
+        dotView.image = UIImage(named: "dot")
         
         magnetismLabel.text = buttonState == .search ? "Search checking" : "50 µT"
         magnetismLabel.font = UIFont.systemFont(ofSize: 17)
@@ -125,9 +125,15 @@ private extension MagneticView {
             $0.height.equalTo(self.screenSize.width / 1.9)
         }
         
-        addSubview(arrowView) {
-            $0.centerX.equalToSuperview() // .offset(20)
+        addSubview(dotView) {
+            $0.centerX.equalToSuperview()
             $0.centerY.equalTo(dashboardView.snp.bottom)
+        }
+        
+        addSubview(arrowView) {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(dotView.snp.centerY)
+            $0.width.equalTo(screenSize.width * 0.25)
         }
         
         addSubview(magnetismLabel) {
