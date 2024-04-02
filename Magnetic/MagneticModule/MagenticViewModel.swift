@@ -10,12 +10,12 @@ import Combine
 
 final class MagneticViewModel{
     private(set) lazy var dataPublisher = dataValue.eraseToAnyPublisher()
-    private lazy var dataValue = CurrentValueSubject<[WifiDataModel], Never>([])
+    private lazy var dataValue = CurrentValueSubject<CGFloat, Never>(0)
     
     private let dataManager: DataManager = MockedDataManager()
     
-    func getData() {
-        let data = dataManager.getData()
+    func measureMagnetism() {
+        let data = dataManager.getMagnetism()
         self.dataValue.send(data)
     }
 }
