@@ -23,6 +23,6 @@ final class MockedDataManager: DataManager {
     }
 
     func getMagnetism() -> CGFloat {
-        return CGFloat.random(in: 0 ... Double.pi)
+        return CGFloat.random(in: 0 ... CGFloat.pi)
     }
 }

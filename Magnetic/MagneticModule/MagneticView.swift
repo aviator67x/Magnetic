@@ -58,17 +58,20 @@ final class MagneticView: UIView {
     // - MARK: Objc
     @objc
     func onButtonTap() {
-        rotateArrow(angle: CGFloat(Double.pi * 0.5))
+        actionSubject.send(.didPressButton)
         buttonState.toggle()
         button.setTitle(buttonState == .search ? "Seearch" : "Stop", for: .normal)
-        magnetismLabel.text = buttonState == .search ? "Search checking" : "50 µT"
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.actionSubject.send(.showWifi)
         }
     }
     
     func rotateArrow(angle: CGFloat) {
-        buttonState == .search ? clockwise(angle: CGFloat(Double.pi * 0.5)) : counterClockwise(angle: 0)
+        buttonState == .stop ? clockwise(angle: angle) : counterClockwise()
+        let intAngle = Int(angle * 40)
+        let stringAngle = String(intAngle)
+        magnetismLabel.text = buttonState == .search ? "Search checking" : "\(stringAngle) µT"
     }
 }
 
@@ -76,14 +79,14 @@ final class MagneticView: UIView {
 private extension MagneticView {
     func clockwise(angle: CGFloat) {
         UIImageView.animate(withDuration: 2) {
-            let transformation = CGAffineTransform(rotationAngle: CGFloat(angle))
+            let transformation = CGAffineTransform(rotationAngle: angle)
             self.arrowView.transform = transformation
         }
     }
     
-    func counterClockwise(angle: CGFloat) {
+    func counterClockwise() {
         UIImageView.animate(withDuration: 0.5) {
-            let transformation = CGAffineTransform(rotationAngle: CGFloat(angle))
+            let transformation = CGAffineTransform(rotationAngle: 0)
             self.arrowView.transform = transformation
         }
     }
