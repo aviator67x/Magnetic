@@ -9,21 +9,32 @@
 /* Begin PBXBuildFile section */
 		A25199362BBC33EF0024210C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199352BBC33EF0024210C /* AppDelegate.swift */; };
 		A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199372BBC33EF0024210C /* SceneDelegate.swift */; };
-		A251993A2BBC33EF0024210C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199392BBC33EF0024210C /* ViewController.swift */; };
+		A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199392BBC33EF0024210C /* MagneticViewController.swift */; };
 		A251993D2BBC33EF0024210C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A251993B2BBC33EF0024210C /* Main.storyboard */; };
 		A251993F2BBC33F00024210C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A251993E2BBC33F00024210C /* Assets.xcassets */; };
 		A25199422BBC33F00024210C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25199402BBC33F00024210C /* LaunchScreen.storyboard */; };
+		A251994B2BBC3CA50024210C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A251994A2BBC3CA50024210C /* SnapKit */; };
+		A251994D2BBC3D270024210C /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251994C2BBC3D270024210C /* MagneticView.swift */; };
+		A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199502BBC3DCF0024210C /* MagenticViewModel.swift */; };
+		A25199532BBC3DEB0024210C /* MockedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199522BBC3DEB0024210C /* MockedDataManager.swift */; };
+		A25199572BBC3E5E0024210C /* WiFiData.json in Resources */ = {isa = PBXBuildFile; fileRef = A25199562BBC3E5E0024210C /* WiFiData.json */; };
+		A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199582BBC3E6D0024210C /* WifiDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A25199322BBC33EF0024210C /* Magnetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25199352BBC33EF0024210C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25199372BBC33EF0024210C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A25199392BBC33EF0024210C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A25199392BBC33EF0024210C /* MagneticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticViewController.swift; sourceTree = "<group>"; };
 		A251993C2BBC33EF0024210C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A251993E2BBC33F00024210C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A25199412BBC33F00024210C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A25199432BBC33F00024210C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A251994C2BBC3D270024210C /* MagneticView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
+		A25199502BBC3DCF0024210C /* MagenticViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagenticViewModel.swift; sourceTree = "<group>"; };
+		A25199522BBC3DEB0024210C /* MockedDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedDataManager.swift; sourceTree = "<group>"; };
+		A25199562BBC3E5E0024210C /* WiFiData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WiFiData.json; sourceTree = "<group>"; };
+		A25199582BBC3E6D0024210C /* WifiDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A251994B2BBC3CA50024210C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +68,36 @@
 		A25199342BBC33EF0024210C /* Magnetic */ = {
 			isa = PBXGroup;
 			children = (
-				A25199352BBC33EF0024210C /* AppDelegate.swift */,
-				A25199372BBC33EF0024210C /* SceneDelegate.swift */,
-				A25199392BBC33EF0024210C /* ViewController.swift */,
+				A251994E2BBC3D560024210C /* App */,
+				A251994F2BBC3D6F0024210C /* MagneticModule */,
 				A251993B2BBC33EF0024210C /* Main.storyboard */,
-				A251993E2BBC33F00024210C /* Assets.xcassets */,
 				A25199402BBC33F00024210C /* LaunchScreen.storyboard */,
+				A251993E2BBC33F00024210C /* Assets.xcassets */,
 				A25199432BBC33F00024210C /* Info.plist */,
 			);
 			path = Magnetic;
+			sourceTree = "<group>";
+		};
+		A251994E2BBC3D560024210C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A25199372BBC33EF0024210C /* SceneDelegate.swift */,
+				A25199352BBC33EF0024210C /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A251994F2BBC3D6F0024210C /* MagneticModule */ = {
+			isa = PBXGroup;
+			children = (
+				A25199392BBC33EF0024210C /* MagneticViewController.swift */,
+				A251994C2BBC3D270024210C /* MagneticView.swift */,
+				A25199502BBC3DCF0024210C /* MagenticViewModel.swift */,
+				A25199522BBC3DEB0024210C /* MockedDataManager.swift */,
+				A25199562BBC3E5E0024210C /* WiFiData.json */,
+				A25199582BBC3E6D0024210C /* WifiDataModel.swift */,
+			);
+			path = MagneticModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +116,9 @@
 			dependencies = (
 			);
 			name = Magnetic;
+			packageProductDependencies = (
+				A251994A2BBC3CA50024210C /* SnapKit */,
+			);
 			productName = Magnetic;
 			productReference = A25199322BBC33EF0024210C /* Magnetic.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +147,9 @@
 				Base,
 			);
 			mainGroup = A25199292BBC33EF0024210C;
+			packageReferences = (
+				A25199492BBC3CA50024210C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = A25199332BBC33EF0024210C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +166,7 @@
 			files = (
 				A25199422BBC33F00024210C /* LaunchScreen.storyboard in Resources */,
 				A251993F2BBC33F00024210C /* Assets.xcassets in Resources */,
+				A25199572BBC3E5E0024210C /* WiFiData.json in Resources */,
 				A251993D2BBC33EF0024210C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A251993A2BBC33EF0024210C /* ViewController.swift in Sources */,
+				A25199532BBC3DEB0024210C /* MockedDataManager.swift in Sources */,
+				A251994D2BBC3D270024210C /* MagneticView.swift in Sources */,
+				A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */,
 				A25199362BBC33EF0024210C /* AppDelegate.swift in Sources */,
 				A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */,
+				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
+				A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A25199492BBC3CA50024210C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A251994A2BBC3CA50024210C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A25199492BBC3CA50024210C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A251992A2BBC33EF0024210C /* Project object */;
 }

@@ -1,0 +1,40 @@
+
+
+[
+    {
+      "name": "-",
+      "address": "192.168.1.1",
+      "isAvailable": true
+    },
+    {
+      "name": "MacTick_a123",
+      "address": "192.168.1.1",
+      "isAvailable": false
+    },
+    {
+      "name": "Phone",
+      "address": "192.168.1.1",
+      "isAvailable": true
+    },
+    {
+      "name": "Ms_12k",
+      "address": "192.168.1.1",
+      "isAvailable": false
+    },
+    {
+      "name": "Router Traplun",
+      "address": "192.168.1.1",
+      "isAvailable": true
+    },
+    {
+      "name": "Router Traplun",
+      "address": "192.168.1.1",
+      "isAvailable": true
+    },
+    {
+      "name": "Router Traplun",
+      "address": "192.168.1.1",
+      "isAvailable": true
+    }
+  ]
+
