@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-class ViewController: UIViewController {
+final class MagneticViewController: UIViewController {
     // - MARK: Private properties
     private let magneticView = MagneticView()
     private let model = MagneticViewModel()
@@ -26,12 +26,13 @@ class ViewController: UIViewController {
         title = "Magnetic Detection"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+
         setupBinding()
     }
 }
 
 // - MARK: private extension
-private extension ViewController {
+private extension MagneticViewController {
     func setupBinding() {
         magneticView.actionPublisher
             .sink { [weak self] action in
@@ -40,7 +41,7 @@ private extension ViewController {
                     self?.model.measureMagnetism()
                 case .showWifi:
                     let vc = WifiViewController()
-//                    self?.navigationController?.pushViewController(vc, animated: true)
+                    self?.navigationController?.pushViewController(vc, animated: false)
                 }
             }
             .store(in: &cancellables)

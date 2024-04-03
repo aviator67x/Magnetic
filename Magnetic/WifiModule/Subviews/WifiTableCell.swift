@@ -42,14 +42,14 @@ final class WifiTableCell: UITableViewCell {
 private extension WifiTableCell {
     func setupUI() {
         backgroundColor = UIColor(named: "tableBackground")
-        
+
         nameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         nameLabel.textColor = .white
-        
+
         addressLabel.textColor = .white
         addressLabel.font = UIFont.systemFont(ofSize: 13)
         addressLabel.alpha = 0.5
-        
+
         checkmarkImageView.image = UIImage(named: "chevron")
         checkmarkImageView.tintColor = .white
     }

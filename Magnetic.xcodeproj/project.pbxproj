@@ -157,10 +157,10 @@
 		A25199692BBC6A4C0024210C /* WifiModule */ = {
 			isa = PBXGroup;
 			children = (
-				A298312E2BBD423C001BD7F2 /* Subviews */,
 				A251996A2BBC6A6E0024210C /* WifiViewController().swift */,
 				A251996C2BBC6B610024210C /* WifiView.swift */,
 				A251996E2BBC6C390024210C /* WifiViewModel.swift */,
+				A298312E2BBD423C001BD7F2 /* Subviews */,
 			);
 			path = WifiModule;
 			sourceTree = "<group>";

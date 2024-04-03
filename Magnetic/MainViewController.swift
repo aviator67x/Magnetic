@@ -14,7 +14,7 @@ final class MainViewController: UIViewController {
         self.view.backgroundColor = .white
         title = "Main"
         
-        let viewConroller = ViewController()
-        navigationController?.pushViewController(viewConroller, animated: true)
+        let viewConroller = MagneticViewController()
+        navigationController?.pushViewController(viewConroller, animated: false)
     }
 }

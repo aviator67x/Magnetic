@@ -63,7 +63,7 @@ final class MagneticView: UIView {
         buttonState.toggle()
         button.setTitle(buttonState == .search ? "Seearch" : "Stop", for: .normal)
        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.actionSubject.send(.showWifi)
         }
     }
@@ -97,8 +97,6 @@ private extension MagneticView {
         dashboardView.image = UIImage(named: "dashboard")
         
         arrowView.image = UIImage(named: "thinArrow")
-        let xOffset = arrowView.frame.size.width / 2
-        let yOffset = arrowView.frame.size.height / 2
         arrowView.setAnchorPoint(CGPoint(x: 1, y: 0.9))
         
         dotView.image = UIImage(named: "dot")

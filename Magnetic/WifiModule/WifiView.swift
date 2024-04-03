@@ -17,11 +17,7 @@ final class WifiView: UIView {
     private let tableView = UITableView()
     
     // - MARK: Private properties
-    private var wifiData: [WifiDataModel] = [
-        WifiDataModel(name: "SomeName", address: "SomeAddress", isAvailable: true),
-        WifiDataModel(name: "SomeName", address: "SomeAddress", isAvailable: false),
-        WifiDataModel(name: "SomeName", address: "SomeAddress", isAvailable: true)
-    ]
+    private var wifiData: [WifiDataModel] = []
     
     // - MARK: Lifecycle
     override init(frame: CGRect) {
@@ -33,6 +29,11 @@ final class WifiView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateTable(_ data: [WifiDataModel]) {
+        wifiData  = data
+        tableView.reloadData()
     }
 }
 
