@@ -30,6 +30,8 @@
 		A298312B2BBD40A7001BD7F2 /* UITableView+dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */; };
 		A298312D2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */; };
 		A29831302BBD4267001BD7F2 /* WifiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */; };
+		A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29831322BBDAA87001BD7F2 /* MainView.swift */; };
+		A29831352BBDAA97001BD7F2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29831342BBDAA97001BD7F2 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeue.swift"; sourceTree = "<group>"; };
 		A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+reusableIdentifier.swift"; sourceTree = "<group>"; };
 		A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiTableCell.swift; sourceTree = "<group>"; };
+		A29831322BBDAA87001BD7F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A29831342BBDAA97001BD7F2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,7 @@
 				A251994E2BBC3D560024210C /* App */,
 				A251995C2BBC42D70024210C /* Services */,
 				A25199662BBC54940024210C /* Extensions */,
-				A25199622BBC4CFB0024210C /* MainViewController.swift */,
+				A29831312BBDAA61001BD7F2 /* MainModule */,
 				A251994F2BBC3D6F0024210C /* MagneticModule */,
 				A25199692BBC6A4C0024210C /* WifiModule */,
 				A251993B2BBC33EF0024210C /* Main.storyboard */,
@@ -171,6 +175,16 @@
 				A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		A29831312BBDAA61001BD7F2 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				A25199622BBC4CFB0024210C /* MainViewController.swift */,
+				A29831322BBDAA87001BD7F2 /* MainView.swift */,
+				A29831342BBDAA97001BD7F2 /* MainViewModel.swift */,
+			);
+			path = MainModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,7 @@
 				A251994D2BBC3D270024210C /* MagneticView.swift in Sources */,
 				A251996B2BBC6A6E0024210C /* WifiViewController().swift in Sources */,
 				A298312D2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift in Sources */,
+				A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */,
 				A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */,
 				A251995F2BBC439B0024210C /* FetchedDataManager.swift in Sources */,
 				A251996F2BBC6C390024210C /* WifiViewModel.swift in Sources */,
@@ -265,6 +280,7 @@
 				A25199652BBC54880024210C /* UIView+layout.swift in Sources */,
 				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
 				A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */,
+				A29831352BBDAA97001BD7F2 /* MainViewModel.swift in Sources */,
 				A251996D2BBC6B610024210C /* WifiView.swift in Sources */,
 				A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */,
 				A298312B2BBD40A7001BD7F2 /* UITableView+dequeue.swift in Sources */,

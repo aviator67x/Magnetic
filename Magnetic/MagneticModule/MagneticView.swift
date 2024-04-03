@@ -123,6 +123,7 @@ private extension MagneticView {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(self.screenSize.width / 1.2)
         }
+        
         addSubview(dashboardView) {
             $0.top.equalTo(magnetView.snp.bottom).offset(50)
             $0.centerX.equalToSuperview()
