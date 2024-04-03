@@ -28,6 +28,8 @@ final class WifiViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
 
+        self.navigationController?.navigationBar.backItem?.title = ""
+        
         model.getNetData()
         setupBinding()
     }
