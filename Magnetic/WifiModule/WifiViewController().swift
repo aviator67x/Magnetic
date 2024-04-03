@@ -22,4 +22,17 @@ final class WifiViewController: UIViewController {
         super.loadView()
         view = magneticView
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Result"
+        setupBinding()
+    }
+}
+
+// - MARK: private extension
+private extension WifiViewController {
+    func setupBinding() {
+//        model
+    }
 }

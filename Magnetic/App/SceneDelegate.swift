@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let vc = MainViewController()
+        let wifiVC = WifiViewController()
         let navigationVC = UINavigationController()
-        navigationVC.viewControllers =  [vc]
+        navigationVC.viewControllers =  [wifiVC] //[vc]
         self.window?.rootViewController = navigationVC
         window.makeKeyAndVisible()
     }
