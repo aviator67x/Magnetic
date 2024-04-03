@@ -26,6 +26,8 @@ final class WifiViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Result"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         setupBinding()
     }
 }

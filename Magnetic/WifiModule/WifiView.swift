@@ -13,10 +13,15 @@ final class WifiView: UIView {
     // - MARK: Views
     private let numberLabel = UILabel()
     private let titleLabel = UILabel()
+    private let nameLabel = UILabel()
     private let tableView = UITableView()
     
     // - MARK: Private properties
-    private var wifiData = [WifiDataModel]()
+    private var wifiData: [WifiDataModel] = [
+        WifiDataModel(name: "SomeName", address: "SomeAddress", isAvailable: true),
+        WifiDataModel(name: "SomeName", address: "SomeAddress", isAvailable: false),
+        WifiDataModel(name: "SomeName", address: "SomeAddress", isAvailable: true)
+    ]
     
     // - MARK: Lifecycle
     override init(frame: CGRect) {
@@ -34,14 +39,18 @@ final class WifiView: UIView {
 // - MARK: private extension
 private extension WifiView {
     func setupViews() {
-        backgroundColor = .cyan
         numberLabel.text = "5"
-        numberLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        numberLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         numberLabel.textColor = UIColor(named: "purple")
         
         titleLabel.text = "Devices"
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titleLabel.textColor = .white
+        
+        nameLabel.text = "WIFI_Name"
+        nameLabel.font = UIFont.systemFont(ofSize: 20)
+        nameLabel.textColor = .white
+        nameLabel.alpha = 0.5
         
         tableView.dataSource = self
         tableView.register(WifiTableCell.self)
@@ -58,12 +67,17 @@ private extension WifiView {
         
         addSubview(titleLabel) {
             $0.centerY.equalTo(numberLabel.snp.centerY)
-            $0.leading.equalTo(numberLabel.snp.trailing)
+            $0.leading.equalTo(numberLabel.snp.trailing).offset(5)
             $0.height.equalTo(25)
         }
         
+        addSubview(nameLabel) {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(numberLabel.snp.bottom).offset(5)
+        }
+        
         addSubview(tableView) {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+            $0.top.equalTo(nameLabel.snp.bottom).offset(25)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }

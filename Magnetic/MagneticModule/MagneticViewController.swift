@@ -9,7 +9,6 @@ import Combine
 import UIKit
 
 class ViewController: UIViewController {
-    
     // - MARK: Private properties
     private let magneticView = MagneticView()
     private let model = MagneticViewModel()
@@ -24,6 +23,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Magnetic Detection"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         setupBinding()
     }
 }
