@@ -32,7 +32,7 @@ final class WifiView: UIView {
     }
     
     func updateTable(_ data: [WifiDataModel]) {
-        wifiData  = data
+        wifiData = data
         tableView.reloadData()
     }
 }
@@ -61,7 +61,6 @@ private extension WifiView {
         tableView.backgroundColor = UIColor(named: "tableBackground")
         tableView.separatorColor = .gray
         tableView.separatorStyle = .singleLine
-        
     }
     
     func setupLayout() {

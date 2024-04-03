@@ -42,7 +42,6 @@ private extension MagneticViewController {
         magneticView
             .actionPublisher
             .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
-//            .throttle(for: .milliseconds(500), scheduler: DispatchQueue.main, latest: true)
             .sink { [weak self] action in
                 switch action {
                 case .measureMagnetism:

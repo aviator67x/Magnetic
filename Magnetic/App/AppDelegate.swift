@@ -9,11 +9,10 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        customizeNavBar()
+
         return true
     }
 
@@ -31,6 +30,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    private func customizeNavBar() {
+        let newNavBarAppearance = customNavBarAppearance()
 
+        let appearance = UINavigationBar.appearance()
+        appearance.scrollEdgeAppearance = newNavBarAppearance
+        appearance.compactAppearance = newNavBarAppearance
+        appearance.standardAppearance = newNavBarAppearance
+        if #available(iOS 15.0, *) {
+            appearance.compactScrollEdgeAppearance = newNavBarAppearance
+        }
+        appearance.tintColor = UIColor(named: "purple")
+    }
+
+    private func customNavBarAppearance() -> UINavigationBarAppearance {
+        let customNavBarAppearance = UINavigationBarAppearance()
+        customNavBarAppearance.configureWithOpaqueBackground()
+
+        customNavBarAppearance.shadowColor = .clear
+        customNavBarAppearance.backgroundColor = .black
+
+        customNavBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        customNavBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        let barButtonItemAppearance = UIBarButtonItemAppearance(style: .plain)
+        barButtonItemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barButtonItemAppearance.disabled.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barButtonItemAppearance.highlighted.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barButtonItemAppearance.focused.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        customNavBarAppearance.buttonAppearance = barButtonItemAppearance
+        customNavBarAppearance.backButtonAppearance = barButtonItemAppearance
+        customNavBarAppearance.doneButtonAppearance = barButtonItemAppearance
+
+        return customNavBarAppearance
+    }
 }
-

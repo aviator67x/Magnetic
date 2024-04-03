@@ -31,6 +31,8 @@ final class MagneticView: UIView {
     }
 
     // - MARK: Views
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     private let magnetView = UIImageView()
     private let dashboardView = UIImageView()
     private let arrowView = UIImageView()
@@ -99,9 +101,9 @@ private extension MagneticView {
 
     func setupViews() {
         backgroundColor = .black
-        
+
         magnetView.image = UIImage(named: "magnet")
-        
+
         dashboardView.image = UIImage(named: "dashboard")
 
         arrowView.image = UIImage(named: "thinArrow")
@@ -120,35 +122,45 @@ private extension MagneticView {
     }
 
     func setupLayout() {
-        addSubview(magnetView) {
+        addSubview(scrollView) {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+        }
+
+        scrollView.addSubview(contentView) {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+
+        contentView.addSubview(magnetView) {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(self.screenSize.width / 1.2)
         }
-        
-        addSubview(dashboardView) {
+
+        contentView.addSubview(dashboardView) {
             $0.top.equalTo(magnetView.snp.bottom).offset(50)
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(self.screenSize.width / 1.9)
+            $0.height.equalTo(self.screenSize.width / 2)
         }
 
-        addSubview(dotView) {
+        contentView.addSubview(dotView) {
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(dashboardView.snp.bottom)
         }
 
-        addSubview(arrowView) {
+        contentView.addSubview(arrowView) {
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(dotView.snp.centerY)
             $0.width.equalTo(screenSize.width * 0.25)
         }
 
-        addSubview(magnetismLabel) {
+        contentView.addSubview(magnetismLabel) {
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(arrowView.snp.bottom).offset(50)
         }
 
-        addSubview(button) {
+        contentView.addSubview(button) {
+            $0.top.equalTo(magnetismLabel.snp.bottom).offset(100)
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(50)

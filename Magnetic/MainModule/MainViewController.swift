@@ -11,7 +11,6 @@ import UIKit
 final class MainViewController: UIViewController {
     // - MARK: Private properties
     private let mainView = MainView()
-    private let model = MagneticViewModel()
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -23,13 +22,18 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavigation()
         setupBinding()
     }
 }
 
 // - MARK: private extension
 private extension MainViewController {
+    func setupNavigation() {
+        title = "Main"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "filter")))
+    }
+
     func setupBinding() {
         mainView.actionPublisher
             .sink { [weak self] _ in

@@ -31,7 +31,6 @@
 		A298312D2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */; };
 		A29831302BBD4267001BD7F2 /* WifiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */; };
 		A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29831322BBDAA87001BD7F2 /* MainView.swift */; };
-		A29831352BBDAA97001BD7F2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29831342BBDAA97001BD7F2 /* MainViewModel.swift */; };
 		A29831382BBDE45A001BD7F2 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A29831372BBDE45A001BD7F2 /* CombineCocoa */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +60,6 @@
 		A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+reusableIdentifier.swift"; sourceTree = "<group>"; };
 		A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiTableCell.swift; sourceTree = "<group>"; };
 		A29831322BBDAA87001BD7F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		A29831342BBDAA97001BD7F2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +182,6 @@
 			children = (
 				A25199622BBC4CFB0024210C /* MainViewController.swift */,
 				A29831322BBDAA87001BD7F2 /* MainView.swift */,
-				A29831342BBDAA97001BD7F2 /* MainViewModel.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -284,7 +281,6 @@
 				A25199652BBC54880024210C /* UIView+layout.swift in Sources */,
 				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
 				A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */,
-				A29831352BBDAA97001BD7F2 /* MainViewModel.swift in Sources */,
 				A251996D2BBC6B610024210C /* WifiView.swift in Sources */,
 				A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */,
 				A298312B2BBD40A7001BD7F2 /* UITableView+dequeue.swift in Sources */,
@@ -440,8 +436,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,8 +464,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

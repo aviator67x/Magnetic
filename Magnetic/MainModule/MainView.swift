@@ -17,8 +17,9 @@ enum MainViewActions {
 
 final class MainView: UIView {
     // - MARK: Views
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     private let headerView = UIImageView()
-    private let filterView = UIImageView()
     private let backgroundView = UIView()
     private let currentLabel = UILabel()
     private let wifiLabel = UILabel()
@@ -64,8 +65,6 @@ private extension MainView {
 
         headerView.image = UIImage(named: "mainHeader")
 
-        filterView.image = UIImage(named: "filter")
-
         backgroundView.backgroundColor = UIColor(named: "tableBackground")
         backgroundView.layer.cornerRadius = 8
 
@@ -109,18 +108,21 @@ private extension MainView {
     }
 
     func setupLayout() {
-        addSubview(headerView) {
+        addSubview(scrollView) {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+        }
+
+        scrollView.addSubview(contentView) {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+
+        contentView.addSubview(headerView) {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(self.screenSize.width / 1.2)
         }
 
-        addSubview(filterView) {
-            $0.size.equalTo(24)
-            $0.top.equalTo(headerView.snp.top).offset(40)
-            $0.trailing.equalToSuperview().inset(16)
-        }
-
-        addSubview(backgroundView) {
+        contentView.addSubview(backgroundView) {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom).offset(-40)
             $0.leading.trailing.equalToSuperview().inset(10)
@@ -128,7 +130,7 @@ private extension MainView {
         }
 
         backgroundView.addSubview(currentLabel) {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(10)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(20)
         }
@@ -139,36 +141,39 @@ private extension MainView {
             $0.height.equalTo(34)
         }
 
+        addSubview(readyLabel) {
+            $0.top.equalTo(wifiLabel.snp.bottom).offset(10)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(20)
+        }
+
         backgroundView.addSubview(scanButton) {
             $0.bottom.equalToSuperview().offset(-16)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(50)
         }
 
-        addSubview(readyLabel) {
-            $0.bottom.equalTo(scanButton.snp.top).offset(-10)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(20)
+        contentView.addSubview(infraredButton) {
+            $0.top.equalTo(backgroundView.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().inset(20)
+            $0.size.equalTo(screenSize.size.width * 0.4)
         }
 
-        addSubview(magnetButton) {
+        contentView.addSubview(bluetuthButton) {
+            $0.top.equalTo(backgroundView.snp.bottom).offset(10)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.size.equalTo(screenSize.size.width * 0.4)
+        }
+
+        contentView.addSubview(magnetButton) {
+            $0.top.equalTo(infraredButton.snp.bottom).offset(20)
             $0.leading.bottom.equalToSuperview().inset(20)
             $0.size.equalTo(screenSize.size.width * 0.4)
         }
 
-        addSubview(antispyButton) {
+        contentView.addSubview(antispyButton) {
+            $0.top.equalTo(infraredButton.snp.bottom).offset(20)
             $0.trailing.bottom.equalToSuperview().inset(20)
-            $0.size.equalTo(screenSize.size.width * 0.4)
-        }
-
-        addSubview(infraredButton) {
-            $0.leading.equalToSuperview().inset(20)
-            $0.bottom.equalTo(magnetButton.snp.top).offset(-20)
-            $0.size.equalTo(screenSize.size.width * 0.4)
-        }
-        addSubview(bluetuthButton) {
-            $0.trailing.equalToSuperview().inset(20)
-            $0.bottom.equalTo(antispyButton.snp.top).offset(-20)
             $0.size.equalTo(screenSize.size.width * 0.4)
         }
     }

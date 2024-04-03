@@ -28,11 +28,11 @@ final class WifiViewController: UIViewController {
         model.getNetData()
         setupBinding()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.navigationBar.topItem?.title = " "
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Back"
     }

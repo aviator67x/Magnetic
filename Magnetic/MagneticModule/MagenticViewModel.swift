@@ -5,17 +5,17 @@
 //  Created by Andrew Kasilov on 02.04.2024.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-final class MagneticViewModel{
+final class MagneticViewModel {
     private(set) lazy var dataPublisher = dataValue.eraseToAnyPublisher()
     private lazy var dataValue = CurrentValueSubject<CGFloat, Never>(0)
-    
+
     private let dataManager: DataManager = MockedDataManager()
-    
+
     func measureMagnetism() {
         let data = dataManager.getMagnetism()
-        self.dataValue.send(data)
+        dataValue.send(data)
     }
 }

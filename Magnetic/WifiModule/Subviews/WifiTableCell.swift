@@ -10,10 +10,10 @@ import UIKit
 final class WifiTableCell: UITableViewCell {
     // MARK: - SubViews
 
-   private let nameLabel = UILabel()
-   private let addressLabel = UILabel()
-   private let checkmarkImageView = UIImageView()
-   private let icon = UIImageView()
+    private let nameLabel = UILabel()
+    private let addressLabel = UILabel()
+    private let checkmarkImageView = UIImageView()
+    private let icon = UIImageView()
 
     // MARK: - Life cycle
 
