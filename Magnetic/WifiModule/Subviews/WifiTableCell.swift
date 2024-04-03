@@ -10,10 +10,10 @@ import UIKit
 final class WifiTableCell: UITableViewCell {
     // MARK: - SubViews
 
-    let nameLabel = UILabel()
-    let addressLabel = UILabel()
-    let checkmarkImageView = UIImageView()
-    let icon = UIImageView()
+   private let nameLabel = UILabel()
+   private let addressLabel = UILabel()
+   private let checkmarkImageView = UIImageView()
+   private let icon = UIImageView()
 
     // MARK: - Life cycle
 
@@ -41,6 +41,7 @@ final class WifiTableCell: UITableViewCell {
 
 private extension WifiTableCell {
     func setupUI() {
+        selectionStyle = .none
         backgroundColor = UIColor(named: "tableBackground")
 
         nameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)

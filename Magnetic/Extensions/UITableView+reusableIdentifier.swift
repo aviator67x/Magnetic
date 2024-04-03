@@ -9,6 +9,6 @@ import UIKit
 
 extension UITableViewCell {
     static var reusableIdentifier: String {
-        return String (describing: self)
+        return String(describing: self)
     }
 }

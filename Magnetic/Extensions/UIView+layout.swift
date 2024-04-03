@@ -5,11 +5,10 @@
 //  Created by User on 18.01.2023.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 extension UIView {
-    
     func layout(using closure: (ConstraintMaker) -> Void) {
         translatesAutoresizingMaskIntoConstraints = false
         snp.makeConstraints(closure)
@@ -20,4 +19,3 @@ extension UIView {
         view.layout(using: closure)
     }
 }
-

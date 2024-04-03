@@ -24,19 +24,28 @@ final class WifiViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Result"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-
-        self.navigationController?.navigationBar.backItem?.title = ""
-        
+        setupNavigationBar()
         model.getNetData()
         setupBinding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = " "
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.topItem?.title = "Back"
     }
 }
 
 // - MARK: private extension
 private extension WifiViewController {
+    func setupNavigationBar() {
+        title = "Result"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+
     func setupBinding() {
         model.networkDataPublisher
             .receive(on: DispatchQueue.main)

@@ -15,6 +15,8 @@ final class MagneticViewController: UIViewController {
 
     private var cancellables = Set<AnyCancellable>()
 
+    private var timer: Timer?
+
     // - MARK: Lifecycle
     override func loadView() {
         super.loadView()
@@ -23,30 +25,44 @@ final class MagneticViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Magnetic Detection"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-
+        setupNavigationBar()
         setupBinding()
     }
 }
 
 // - MARK: private extension
 private extension MagneticViewController {
+    func setupNavigationBar() {
+        title = "Magnetic Detection"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+
     func setupBinding() {
-        magneticView.actionPublisher
+        magneticView
+            .actionPublisher
+            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
+//            .throttle(for: .milliseconds(500), scheduler: DispatchQueue.main, latest: true)
             .sink { [weak self] action in
                 switch action {
-                case .didPressButton:
+                case .measureMagnetism:
                     self?.model.measureMagnetism()
-                case .showWifi:
-                    let vc = WifiViewController()
-                    self?.navigationController?.pushViewController(vc, animated: false)
+
+                    self?.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                        let vc = WifiViewController()
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    }
+                case .stopMeasuring:
+                    self?.timer?.invalidate()
+                    self?.timer = nil
+                    self?.magneticView.counterClockwise()
                 }
             }
             .store(in: &cancellables)
 
-        model.dataPublisher
+        model
+            .dataPublisher
+            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
             .receive(on: DispatchQueue.main)
             .dropFirst()
             .sink { [weak self] value in
