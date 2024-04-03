@@ -101,6 +101,7 @@ private extension MagneticView {
         backgroundColor = .black
         
         magnetView.image = UIImage(named: "magnet")
+        
         dashboardView.image = UIImage(named: "dashboard")
 
         arrowView.image = UIImage(named: "thinArrow")

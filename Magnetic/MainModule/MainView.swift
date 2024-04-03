@@ -12,8 +12,9 @@ import UIKit
 
 final class MainView: UIView {
     // - MARK: Views
-    private let headerView = UIView()
-    private let filterView = UIView()
+    private let headerView = UIImageView()
+    private let filterView = UIImageView()
+    private let backgroundView = UIView()
     private let currentLabel = UILabel()
     private let wifiLabel = UILabel()
     private let readyLabel = UILabel()
@@ -43,6 +44,31 @@ final class MainView: UIView {
 private extension MainView {
     func setupViews() {
         backgroundColor = .black
+        
+        headerView.image = UIImage(named: "mainHeader")
+        
+        filterView.image = UIImage(named: "filter")
+        
+        backgroundView.backgroundColor = UIColor(named: "tableBackground")
+        backgroundView.layer.cornerRadius = 8
+        
+        currentLabel.text = "Current Wi-Fi"
+        currentLabel.font = UIFont.systemFont(ofSize: 15)
+        currentLabel.textColor = .white
+        
+        wifiLabel.text = "WIFI_Name"
+        wifiLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        wifiLabel.textColor = .white
+        
+        readyLabel.text = "Ready to Scan this network"
+        readyLabel.font = UIFont.systemFont(ofSize: 17)
+        readyLabel.textColor = .white
+        
+        scanButton.setTitle("Scan current nerwork", for: .normal)
+        scanButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        scanButton.tintColor = .white
+        scanButton.layer.cornerRadius = 25
+        scanButton.backgroundColor = UIColor(named: "buttonBackground")
 
         antispyButton.configuration = configureButton(
             title: "Antispy",
@@ -73,27 +99,39 @@ private extension MainView {
         
         addSubview(filterView) {
             $0.size.equalTo(24)
-            $0.top.trailing.equalToSuperview().offset(16)
+            $0.top.equalTo(headerView.snp.top).offset(40)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
-        addSubview(currentLabel) {
+        addSubview(backgroundView) {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(headerView.snp.bottom).offset(-40)
+            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.height.equalTo(screenSize.height * 0.22)
+        }
+        
+        backgroundView.addSubview(currentLabel) {
+            $0.top.equalToSuperview().offset(16)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(20)
         }
         
-        addSubview(wifiLabel) {
+        backgroundView.addSubview(wifiLabel) {
+            $0.top.equalTo(currentLabel.snp.bottom).offset(10)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(34)
         }
         
-        addSubview(readyLabel) {
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(20)
-        }
-        
-        addSubview(scanButton) {
+        backgroundView.addSubview(scanButton) {
+            $0.bottom.equalToSuperview().offset(-16)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(50)
+        }
+        
+        addSubview(readyLabel) {
+            $0.bottom.equalTo(scanButton.snp.top).offset(-10)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(20)
         }
         
         addSubview(magnetButton) {
