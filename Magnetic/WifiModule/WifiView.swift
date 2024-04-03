@@ -40,6 +40,8 @@ final class WifiView: UIView {
 // - MARK: private extension
 private extension WifiView {
     func setupViews() {
+        backgroundColor = .black
+        
         numberLabel.text = "5"
         numberLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         numberLabel.textColor = UIColor(named: "purple")
