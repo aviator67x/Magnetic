@@ -14,17 +14,28 @@ final class MainViewController: UIViewController {
     private let model = MagneticViewModel()
 
     private var cancellables = Set<AnyCancellable>()
-    
+
     // - MARK: Lifecycle
     override func loadView() {
         super.loadView()
         view = mainView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let viewConroller = MagneticViewController()
-//        navigationController?.pushViewController(viewConroller, animated: false)
+
+        setupBinding()
+    }
+}
+
+// - MARK: private extension
+private extension MainViewController {
+    func setupBinding() {
+        mainView.actionPublisher
+            .sink { [weak self] _ in
+                let viewConroller = MagneticViewController()
+                self?.navigationController?.pushViewController(viewConroller, animated: true)
+            }
+            .store(in: &cancellables)
     }
 }

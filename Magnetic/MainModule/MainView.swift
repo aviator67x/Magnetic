@@ -6,9 +6,14 @@
 //
 
 import Combine
+import CombineCocoa
 import Foundation
 import SnapKit
 import UIKit
+
+enum MainViewActions {
+    case magnetDidTAp
+}
 
 final class MainView: UIView {
     // - MARK: Views
@@ -25,6 +30,9 @@ final class MainView: UIView {
     private let bluetuthButton = UIButton()
 
     // - MARK: Private properties
+    private(set) lazy var actionPublisher = actionSubject.eraseToAnyPublisher()
+    private let actionSubject = PassthroughSubject<MainViewActions, Never>()
+    private var cancellables = Set<AnyCancellable>()
     private let screenSize: CGRect = UIScreen.main.bounds
 
     // - MARK: Lifecycle
@@ -32,6 +40,7 @@ final class MainView: UIView {
         super.init(frame: frame)
         setupViews()
         setupLayout()
+        setupBinding()
     }
 
     @available(*, unavailable)
@@ -42,28 +51,36 @@ final class MainView: UIView {
 
 // - MARK: private extension
 private extension MainView {
+    func setupBinding() {
+        magnetButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.actionSubject.send(.magnetDidTAp)
+            }
+            .store(in: &cancellables)
+    }
+
     func setupViews() {
         backgroundColor = .black
-        
+
         headerView.image = UIImage(named: "mainHeader")
-        
+
         filterView.image = UIImage(named: "filter")
-        
+
         backgroundView.backgroundColor = UIColor(named: "tableBackground")
         backgroundView.layer.cornerRadius = 8
-        
+
         currentLabel.text = "Current Wi-Fi"
         currentLabel.font = UIFont.systemFont(ofSize: 15)
         currentLabel.textColor = .white
-        
+
         wifiLabel.text = "WIFI_Name"
         wifiLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-        wifiLabel.textColor = .white
-        
+        wifiLabel.textColor = UIColor(named: "buttonBackground")
+
         readyLabel.text = "Ready to Scan this network"
         readyLabel.font = UIFont.systemFont(ofSize: 17)
         readyLabel.textColor = .white
-        
+
         scanButton.setTitle("Scan current nerwork", for: .normal)
         scanButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         scanButton.tintColor = .white
@@ -96,44 +113,44 @@ private extension MainView {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(self.screenSize.width / 1.2)
         }
-        
+
         addSubview(filterView) {
             $0.size.equalTo(24)
             $0.top.equalTo(headerView.snp.top).offset(40)
             $0.trailing.equalToSuperview().inset(16)
         }
-        
+
         addSubview(backgroundView) {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom).offset(-40)
             $0.leading.trailing.equalToSuperview().inset(10)
             $0.height.equalTo(screenSize.height * 0.22)
         }
-        
+
         backgroundView.addSubview(currentLabel) {
             $0.top.equalToSuperview().offset(16)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(20)
         }
-        
+
         backgroundView.addSubview(wifiLabel) {
             $0.top.equalTo(currentLabel.snp.bottom).offset(10)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(34)
         }
-        
+
         backgroundView.addSubview(scanButton) {
             $0.bottom.equalToSuperview().offset(-16)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(50)
         }
-        
+
         addSubview(readyLabel) {
             $0.bottom.equalTo(scanButton.snp.top).offset(-10)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(20)
         }
-        
+
         addSubview(magnetButton) {
             $0.leading.bottom.equalToSuperview().inset(20)
             $0.size.equalTo(screenSize.size.width * 0.4)
@@ -143,7 +160,7 @@ private extension MainView {
             $0.trailing.bottom.equalToSuperview().inset(20)
             $0.size.equalTo(screenSize.size.width * 0.4)
         }
-        
+
         addSubview(infraredButton) {
             $0.leading.equalToSuperview().inset(20)
             $0.bottom.equalTo(magnetButton.snp.top).offset(-20)
