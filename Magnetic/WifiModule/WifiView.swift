@@ -57,6 +57,9 @@ private extension WifiView {
         tableView.register(WifiTableCell.self)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(named: "tableBackground")
+        tableView.separatorColor = .gray
+        tableView.separatorStyle = .singleLine
+        
     }
     
     func setupLayout() {
