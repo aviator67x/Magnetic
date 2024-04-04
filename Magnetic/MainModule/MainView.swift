@@ -126,7 +126,7 @@ private extension MainView {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom).offset(-40)
             $0.leading.trailing.equalToSuperview().inset(10)
-            $0.height.equalTo(screenSize.height * 0.22)
+            $0.height.equalTo(190)
         }
 
         backgroundView.addSubview(currentLabel) {
@@ -142,12 +142,13 @@ private extension MainView {
         }
 
         addSubview(readyLabel) {
-            $0.top.equalTo(wifiLabel.snp.bottom).offset(10)
+            $0.top.equalTo(wifiLabel.snp.bottom).offset(10).priority(700)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(20)
         }
 
         backgroundView.addSubview(scanButton) {
+            $0.top.equalTo(readyLabel.snp.bottom).offset(10)
             $0.bottom.equalToSuperview().offset(-16)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(50)

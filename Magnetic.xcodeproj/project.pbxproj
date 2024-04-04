@@ -32,6 +32,7 @@
 		A29831302BBD4267001BD7F2 /* WifiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */; };
 		A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29831322BBDAA87001BD7F2 /* MainView.swift */; };
 		A29831382BBDE45A001BD7F2 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A29831372BBDE45A001BD7F2 /* CombineCocoa */; };
+		A2BC27512BBE87810009BBCC /* Array+swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27502BBE87810009BBCC /* Array+swift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+reusableIdentifier.swift"; sourceTree = "<group>"; };
 		A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiTableCell.swift; sourceTree = "<group>"; };
 		A29831322BBDAA87001BD7F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A2BC27502BBE87810009BBCC /* Array+swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+swift.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				A25199672BBC5F6E0024210C /* UIView+AnchorPoint.swift */,
 				A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */,
 				A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */,
+				A2BC27502BBE87810009BBCC /* Array+swift.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */,
 				A298312B2BBD40A7001BD7F2 /* UITableView+dequeue.swift in Sources */,
 				A25199632BBC4CFB0024210C /* MainViewController.swift in Sources */,
+				A2BC27512BBE87810009BBCC /* Array+swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H4CARJMF9X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Magnetic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -459,6 +464,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H4CARJMF9X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Magnetic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
