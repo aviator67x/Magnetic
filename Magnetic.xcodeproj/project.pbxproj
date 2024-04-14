@@ -33,6 +33,11 @@
 		A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29831322BBDAA87001BD7F2 /* MainView.swift */; };
 		A29831382BBDE45A001BD7F2 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A29831372BBDE45A001BD7F2 /* CombineCocoa */; };
 		A2BC27512BBE87810009BBCC /* Array+swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27502BBE87810009BBCC /* Array+swift.swift */; };
+		A2BC27592BCBED5B0009BBCC /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27582BCBED5B0009BBCC /* ScanView.swift */; };
+		A2BC275B2BCBF0AA0009BBCC /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */; };
+		A2BC275E2BCBF7D60009BBCC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC275D2BCBF7D60009BBCC /* Kingfisher */; };
+		A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = A2BC275F2BCC06BC0009BBCC /* scanner.json */; };
+		A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC27622BCC086B0009BBCC /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +67,9 @@
 		A298312F2BBD4267001BD7F2 /* WifiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiTableCell.swift; sourceTree = "<group>"; };
 		A29831322BBDAA87001BD7F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A2BC27502BBE87810009BBCC /* Array+swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+swift.swift"; sourceTree = "<group>"; };
+		A2BC27582BCBED5B0009BBCC /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		A2BC275F2BCC06BC0009BBCC /* scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scanner.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2BC275E2BCBF7D60009BBCC /* Kingfisher in Frameworks */,
 				A29831382BBDE45A001BD7F2 /* CombineCocoa in Frameworks */,
 				A251994B2BBC3CA50024210C /* SnapKit in Frameworks */,
+				A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,10 +112,12 @@
 				A29831312BBDAA61001BD7F2 /* MainModule */,
 				A251994F2BBC3D6F0024210C /* MagneticModule */,
 				A25199692BBC6A4C0024210C /* WifiModule */,
+				A2BC27572BCBED360009BBCC /* ScanModule */,
 				A251993B2BBC33EF0024210C /* Main.storyboard */,
 				A25199402BBC33F00024210C /* LaunchScreen.storyboard */,
 				A251993E2BBC33F00024210C /* Assets.xcassets */,
 				A25199562BBC3E5E0024210C /* WiFiData.json */,
+				A2BC275F2BCC06BC0009BBCC /* scanner.json */,
 				A25199432BBC33F00024210C /* Info.plist */,
 			);
 			path = Magnetic;
@@ -189,6 +201,15 @@
 			path = MainModule;
 			sourceTree = "<group>";
 		};
+		A2BC27572BCBED360009BBCC /* ScanModule */ = {
+			isa = PBXGroup;
+			children = (
+				A2BC27582BCBED5B0009BBCC /* ScanView.swift */,
+				A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */,
+			);
+			path = ScanModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +229,8 @@
 			packageProductDependencies = (
 				A251994A2BBC3CA50024210C /* SnapKit */,
 				A29831372BBDE45A001BD7F2 /* CombineCocoa */,
+				A2BC275D2BCBF7D60009BBCC /* Kingfisher */,
+				A2BC27622BCC086B0009BBCC /* Lottie */,
 			);
 			productName = Magnetic;
 			productReference = A25199322BBC33EF0024210C /* Magnetic.app */;
@@ -240,6 +263,8 @@
 			packageReferences = (
 				A25199492BBC3CA50024210C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A29831362BBDE45A001BD7F2 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				A2BC275C2BCBF7D60009BBCC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A2BC27612BCC086B0009BBCC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A25199332BBC33EF0024210C /* Products */;
 			projectDirPath = "";
@@ -258,6 +283,7 @@
 				A25199422BBC33F00024210C /* LaunchScreen.storyboard in Resources */,
 				A251993F2BBC33F00024210C /* Assets.xcassets in Resources */,
 				A25199572BBC3E5E0024210C /* WiFiData.json in Resources */,
+				A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */,
 				A251993D2BBC33EF0024210C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +298,7 @@
 				A25199532BBC3DEB0024210C /* MockedDataManager.swift in Sources */,
 				A29831302BBD4267001BD7F2 /* WifiTableCell.swift in Sources */,
 				A251994D2BBC3D270024210C /* MagneticView.swift in Sources */,
+				A2BC275B2BCBF0AA0009BBCC /* ScanViewController.swift in Sources */,
 				A251996B2BBC6A6E0024210C /* WifiViewController().swift in Sources */,
 				A298312D2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift in Sources */,
 				A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */,
@@ -283,6 +310,7 @@
 				A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */,
 				A25199652BBC54880024210C /* UIView+layout.swift in Sources */,
 				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
+				A2BC27592BCBED5B0009BBCC /* ScanView.swift in Sources */,
 				A25199592BBC3E6E0024210C /* WifiDataModel.swift in Sources */,
 				A251996D2BBC6B610024210C /* WifiView.swift in Sources */,
 				A25199612BBC43D30024210C /* DataManagerProtocol.swift in Sources */,
@@ -526,6 +554,22 @@
 				minimumVersion = 0.4.1;
 			};
 		};
+		A2BC275C2BCBF7D60009BBCC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		A2BC27612BCC086B0009BBCC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -538,6 +582,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A29831362BBDE45A001BD7F2 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
+		};
+		A2BC275D2BCBF7D60009BBCC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2BC275C2BCBF7D60009BBCC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A2BC27622BCC086B0009BBCC /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2BC27612BCC086B0009BBCC /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

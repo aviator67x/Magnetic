@@ -13,6 +13,7 @@ import UIKit
 
 enum MainViewActions {
     case magnetDidTAp
+    case scanDidTap
 }
 
 final class MainView: UIView {
@@ -56,6 +57,12 @@ private extension MainView {
         magnetButton.tapPublisher
             .sink { [weak self] _ in
                 self?.actionSubject.send(.magnetDidTAp)
+            }
+            .store(in: &cancellables)
+        
+        scanButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.actionSubject.send(.scanDidTap)
             }
             .store(in: &cancellables)
     }

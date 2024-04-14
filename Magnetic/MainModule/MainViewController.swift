@@ -36,9 +36,16 @@ private extension MainViewController {
 
     func setupBinding() {
         mainView.actionPublisher
-            .sink { [weak self] _ in
-                let viewConroller = MagneticViewController()
-                self?.navigationController?.pushViewController(viewConroller, animated: true)
+            .sink { [weak self] action in
+                switch action {
+                case .magnetDidTAp:
+                    let viewConroller = MagneticViewController()
+                    self?.navigationController?.pushViewController(viewConroller, animated: true)
+                case .scanDidTap:
+                    let viewConroller = ScanViewController()
+                    self?.navigationController?.pushViewController(viewConroller, animated: true)
+                }
+               
             }
             .store(in: &cancellables)
     }
