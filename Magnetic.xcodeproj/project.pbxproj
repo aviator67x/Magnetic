@@ -38,6 +38,7 @@
 		A2BC275E2BCBF7D60009BBCC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC275D2BCBF7D60009BBCC /* Kingfisher */; };
 		A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = A2BC275F2BCC06BC0009BBCC /* scanner.json */; };
 		A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC27622BCC086B0009BBCC /* Lottie */; };
+		A2BC27652BCC5BA10009BBCC /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		A2BC27582BCBED5B0009BBCC /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		A2BC275F2BCC06BC0009BBCC /* scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scanner.json; sourceTree = "<group>"; };
+		A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			children = (
 				A2BC27582BCBED5B0009BBCC /* ScanView.swift */,
 				A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */,
+				A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */,
 			);
 			path = ScanModule;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				A29831302BBD4267001BD7F2 /* WifiTableCell.swift in Sources */,
 				A251994D2BBC3D270024210C /* MagneticView.swift in Sources */,
 				A2BC275B2BCBF0AA0009BBCC /* ScanViewController.swift in Sources */,
+				A2BC27652BCC5BA10009BBCC /* ScanViewModel.swift in Sources */,
 				A251996B2BBC6A6E0024210C /* WifiViewController().swift in Sources */,
 				A298312D2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift in Sources */,
 				A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */,

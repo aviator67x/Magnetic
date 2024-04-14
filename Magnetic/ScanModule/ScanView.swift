@@ -30,6 +30,8 @@ final class ScanView: UIView {
     // - MARK: Private properties
     private(set) lazy var actionPublisher = actionSubject.eraseToAnyPublisher()
     private let actionSubject = PassthroughSubject<ScanViewActions, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    private let screenSize: CGRect = UIScreen.main.bounds
     private var subtitle: String = "TLind_246_Ip"
     private var count: String = "26" {
         didSet {
@@ -50,17 +52,29 @@ final class ScanView: UIView {
         setupViews()
         setupLayout()
 //        lottieView.play()
-//        setupBinding()
+        setupBinding()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updatePercents(_ value: Int) {
+        percents = value
+    }
 }
 
 // - MARK: private extension
 private extension ScanView {
+    func    setupBinding() {
+        stopButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.actionSubject.send(.stopScanning)
+            }
+            .store(in: &cancellables)
+    }
+    
     func setupViews() {
         backgroundColor = .black
         
@@ -82,8 +96,7 @@ private extension ScanView {
 
         let attributedString = createAttributedString()
         countLabel.attributedText = attributedString
-        
-//        StopButton.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
+
         stopButton.backgroundColor = UIColor(named: "purple")
         stopButton.setTitle("Stop", for: .normal)
         stopButton.layer.cornerRadius = 25
@@ -100,26 +113,28 @@ private extension ScanView {
         ]
         
         let firstString = NSMutableAttributedString(string: count, attributes: countAttributes)
-        let secondString = NSMutableAttributedString(string: "Devices found...", attributes: countTitleAttributes)
+        let secondString = NSMutableAttributedString(string: " Devices found...", attributes: countTitleAttributes)
         firstString.append(secondString)
         return firstString
     }
 
     func setupLayout() {
         addSubview(scanImageView) {
-            $0.center.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-20)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(scanImageView.snp.width)
         }
         
         addSubview(percentageLabel) {
-            $0.center.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-20)
             $0.height.equalTo(20)
         }
         
         addSubview(subTitleLabel) {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(scanImageView.snp.top).offset(-80)
+            $0.bottom.equalTo(scanImageView.snp.top).offset(-70)
         }
         
         addSubview(titleLabel) {
@@ -129,15 +144,14 @@ private extension ScanView {
         
         addSubview(countLabel) {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(scanImageView.snp.bottom).offset(30)
+            $0.top.equalTo(scanImageView.snp.bottom).offset(20)
         }
         
         addSubview(stopButton) {
-            $0.top.equalTo(countLabel.snp.bottom).offset(80)
+            $0.top.equalTo(countLabel.snp.bottom).offset(screenSize.height * 0.1)
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(50)
-//            $0.bottom.equalToSuperview().inset(50)
         }
     }
 }
