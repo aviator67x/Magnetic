@@ -13,24 +13,26 @@ final class DetailsView: UIView {
     // - MARK: Views
     private let headerImageView = UIImageView()
     private let attentionImageView = UIImageView()
+    private let backgroundView = UIView()
     private let cameraLabel = UILabel()
     private let addressLabel = UILabel()
-    private var connectionView = DetailedView(name: "", value: "", frame: .zero)
-    private var ipView = DetailedView(name: "", value: "", frame: .zero)
-    private var mackView = DetailedView(name: "", value: "", frame: .zero)
-    private var haostView = DetailedView(name: "", value: "", frame: .zero)
-    private let separatorView = UIView()
+    private var connectionView = DetailedView(name: "", value: "")
+    private var ipView = DetailedView(name: "", value: "")
+    private var mackView = DetailedView(name: "", value: "")
+    private var haostView = DetailedView(name: "", value: "")
     
     // - MARK: Private properties
     private let screenSize: CGRect = UIScreen.main.bounds
     private var deviceData: DeviceDataModel
-    private var ipAddress: String = "192.168.1.1"
-    private var isConnection: Bool = false
+    private var ipAddress: String = ""
+    private var isConnected: Bool = false
     
     // - MARK: Lifecycle
-    init(deviceData: DeviceDataModel, frame: CGRect) {
+    init(deviceData: DeviceDataModel) {
         self.deviceData = deviceData
-        super.init(frame: frame)
+        self.isConnected = deviceData.isConnected
+        self.ipAddress = deviceData.ipAddress
+        super.init(frame: .zero)
         setupViews()
         setupLayout()
     }
@@ -48,7 +50,10 @@ private extension DetailsView {
         
         headerImageView.image = UIImage(named: "detailsHeader")
         
-        attentionImageView.image = isConnection ? UIImage(named: "attentionPositiv") : UIImage(named: "attentionNegativ")
+        attentionImageView.image = isConnected ? UIImage(named: "attentionPositiv") : UIImage(named: "attentionNegativ")
+        
+        backgroundView.backgroundColor = UIColor(named: "tableBackground")
+        backgroundView.layer.cornerRadius = 8
         
         cameraLabel.text = "Camera"
         cameraLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
@@ -58,33 +63,43 @@ private extension DetailsView {
         addressLabel.font = UIFont.systemFont(ofSize: 15)
         addressLabel.textColor = .white
         
-        connectionView = DetailedView(name: "Connection Type", value: deviceData.connectionType, frame: .zero)
+        connectionView = DetailedView(name: "Connection Type", value: deviceData.connectionType)
         
-        ipView = DetailedView(name: "IP Address", value: deviceData.ipAddress, frame: .zero)
+        ipView = DetailedView(name: "IP Address", value: deviceData.ipAddress)
         
-        mackView = DetailedView(name: "MAC Address", value: deviceData.macAddress, frame: .zero)
+        mackView = DetailedView(name: "MAC Address", value: deviceData.macAddress)
         
-        haostView = DetailedView(name: "Hostname", value: deviceData.hostName, frame: .zero)
-        
-        separatorView.backgroundColor = .white
-        separatorView.alpha = 0.5
+        haostView = DetailedView(name: "Hostname", value: deviceData.hostName)
     }
     
     func setupLayout() {
+        func separator() -> UIView {
+            let separatorView = UIView()
+            separatorView.backgroundColor = .white
+            separatorView.alpha = 0.5
+            return separatorView
+        }
+        
         addSubview(headerImageView) {
             $0.top.equalToSuperview().offset(50)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(self.screenSize.width / 1.3)
+            $0.height.equalTo(self.screenSize.width / 1.2)
         }
         
         addSubview(attentionImageView) {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalTo(headerImageView.snp.centerY).offset(40)
+            $0.centerY.equalTo(headerImageView.snp.centerY).offset(20)
             $0.size.equalTo(self.screenSize.width / 3)
         }
         
+        addSubview(backgroundView) {
+            $0.top.equalTo(headerImageView.snp.bottom).offset(-50)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(270)
+        }
+        
         addSubview(cameraLabel) {
-            $0.top.equalTo(headerImageView.snp.bottom).offset(30)
+            $0.top.equalTo(headerImageView.snp.bottom).offset(-20)
             $0.centerX.equalToSuperview()
         }
         
@@ -98,7 +113,8 @@ private extension DetailsView {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        addSubview(separatorView) {
+        let separatorOne = separator()
+        addSubview(separatorOne) {
             $0.top.equalTo(connectionView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(0.5)
@@ -109,20 +125,28 @@ private extension DetailsView {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
+        let separatorTwo = separator()
+        addSubview(separatorTwo) {
+            $0.top.equalTo(ipView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(0.5)
+        }
+        
         addSubview(mackView) {
             $0.top.equalTo(ipView.snp.bottom).offset(0.5)
             $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        let separatorThree = separator()
+        addSubview(separatorThree) {
+            $0.top.equalTo(mackView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(0.5)
         }
         
         addSubview(haostView) {
             $0.top.equalTo(mackView.snp.bottom).offset(0.5)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
-        
-//        addSubview(separatorView) {
-//            $0.top.equalTo(ipView.snp.bottom)
-//            $0.leading.trailing.equalToSuperview().inset(16)
-//            $0.height.equalTo(0.5)
-//        }
     }
 }

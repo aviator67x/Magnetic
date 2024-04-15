@@ -36,7 +36,7 @@ final class WifiViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillDisappear(animated)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
@@ -48,12 +48,19 @@ private extension WifiViewController {
         title = "Result"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationItem.backButtonTitle = ""
     }
 
     func setupBinding() {
+        wifiView.actionPublisher
+            .sink { [weak self] action in
+                switch action {
+                case let .selectedItem(data):
+                    let vc = DetailsViewController(deviceData: data)
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            .store(in: &cancellables)
+        
         model.networkDataPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in

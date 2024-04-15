@@ -13,4 +13,5 @@ struct DeviceDataModel: Decodable {
     let ipAddress: String
     let macAddress: String
     let hostName: String
+    let isConnected: Bool
 }

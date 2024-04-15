@@ -11,12 +11,20 @@ import UIKit
 
 final class DetailsViewController: UIViewController {
     // - MARK: Private properties
-    private let detailsView = DetailsView(deviceData: DeviceDataModel(connectionType: "expample1", ipAddress: "expample2", macAddress: "expample3", hostName: "expample4"), frame: .zero)
-//    private let model = DetailsViewModel()
+    private let detailsView: DetailsView
 
     private var cancellables = Set<AnyCancellable>()
 
     // - MARK: Lifecycle
+    init(deviceData: DeviceDataModel) {
+        self.detailsView = DetailsView(deviceData: deviceData)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         view = detailsView
@@ -34,7 +42,7 @@ final class DetailsViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillDisappear(animated)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
@@ -47,7 +55,12 @@ private extension DetailsViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationItem.backButtonTitle = ""
+        let myimage = UIImage(systemName: "chevron.backward")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: myimage, style: .plain, target: self, action: #selector(buttonAction))
+    }
+    
+    @objc
+    func buttonAction() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

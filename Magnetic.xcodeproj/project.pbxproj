@@ -236,9 +236,17 @@
 			children = (
 				A2BC276A2BCD40500009BBCC /* DetailsView.swift */,
 				A2BC276E2BCD5B050009BBCC /* DetailsViewController.swift */,
-				A2BC27752BCD6AB40009BBCC /* DetailedView.swift */,
+				A2BC27772BCDD7570009BBCC /* Subviews */,
 			);
 			path = DetailsModule;
+			sourceTree = "<group>";
+		};
+		A2BC27772BCDD7570009BBCC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				A2BC27752BCD6AB40009BBCC /* DetailedView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -3,37 +3,58 @@
 [
     {
       "name": "-",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": true
     },
     {
       "name": "MacTick_a123",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": false
     },
     {
       "name": "Phone",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": true
     },
     {
       "name": "Ms_12k",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": false
     },
     {
       "name": "Router Traplun",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": true
     },
     {
       "name": "Router Traplun",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": true
     },
     {
       "name": "Router Traplun",
+      "type": "Wi-Fi",
       "address": "192.168.1.1",
+      "macAddress": "Not Available",
+      "hostName": "gwpc-21141234.local",
       "isAvailable": true
     }
   ]

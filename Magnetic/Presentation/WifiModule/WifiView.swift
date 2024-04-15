@@ -5,10 +5,10 @@
 //  Created by Andrew Kasilov on 02.04.2024.
 //
 
+import Combine
 import Foundation
 import SnapKit
 import UIKit
-import Combine
 
 enum WifiViewActions {
     case selectedItem(DeviceDataModel)
@@ -22,6 +22,8 @@ final class WifiView: UIView {
     private let tableView = UITableView()
     
     // - MARK: Private properties
+    private(set) lazy var actionPublisher = actionSubject.eraseToAnyPublisher()
+    private let actionSubject = PassthroughSubject<WifiViewActions, Never>()
     private var cancellables = Set<AnyCancellable>()
     private var wifiData: [WifiDataModel] = []
     
@@ -62,11 +64,13 @@ private extension WifiView {
         nameLabel.alpha = 0.5
         
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(WifiTableCell.self)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(named: "tableBackground")
         tableView.separatorColor = .gray
         tableView.separatorStyle = .singleLine
+        tableView.isUserInteractionEnabled = true
     }
     
     func setupLayout() {
@@ -102,7 +106,9 @@ extension WifiView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: WifiTableCell = tableView.dequeueReusableCell(for: indexPath)
-        let model = wifiData[indexPath.row]
+        guard let model = wifiData[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
         cell.setup(model)
         return cell
     }
@@ -111,7 +117,14 @@ extension WifiView: UITableViewDataSource {
 // - MARK: private extension UITableViewDelegate
 extension WifiView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt: IndexPath) {
-        
+        guard let data = wifiData[safe: didSelectRowAt.row] else {
+            return
+        }
+        let deviceData = DeviceDataModel(connectionType: data.type,
+                                         ipAddress: data.address,
+                                         macAddress: data.macAddress,
+                                         hostName: data.hostName,
+                                         isConnected: data.isAvailable)
+        self.actionSubject.send(.selectedItem(deviceData))
     }
 }
-
