@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class WifiViewModel {
+    // - MARK: Private properties
     private(set) lazy var networkDataPublisher = networkDataSubject.eraseToAnyPublisher()
     private lazy var networkDataSubject = CurrentValueSubject<[WifiDataModel], Never>([])
 

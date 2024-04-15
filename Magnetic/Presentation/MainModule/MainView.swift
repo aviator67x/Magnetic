@@ -20,6 +20,7 @@ final class MainView: UIView {
     // - MARK: Views
     private let scrollView = UIScrollView()
     private let contentView = UIView()
+    private let filterImageView = UIImageView()
     private let headerView = UIImageView()
     private let backgroundView = UIView()
     private let currentLabel = UILabel()
@@ -69,6 +70,8 @@ private extension MainView {
 
     func setupViews() {
         backgroundColor = .black
+        
+        filterImageView.image = UIImage(named: "filter")
 
         headerView.image = UIImage(named: "mainHeader")
 
@@ -127,6 +130,12 @@ private extension MainView {
         contentView.addSubview(headerView) {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(self.screenSize.width / 1.2)
+        }
+        
+        contentView.addSubview(filterImageView) {
+            $0.bottom.equalTo(headerView.snp.top).offset(60)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.size.equalTo(24)
         }
 
         contentView.addSubview(backgroundView) {

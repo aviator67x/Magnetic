@@ -30,11 +30,15 @@ final class WifiViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = " "
+        super.viewWillAppear(animated)
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Back"
+        super.viewWillAppear(animated)
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 }
 
@@ -44,6 +48,9 @@ private extension WifiViewController {
         title = "Result"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationItem.backButtonTitle = ""
     }
 
     func setupBinding() {

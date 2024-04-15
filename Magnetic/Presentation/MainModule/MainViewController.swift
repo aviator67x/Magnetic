@@ -25,13 +25,18 @@ final class MainViewController: UIViewController {
         setupNavigation()
         setupBinding()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 }
 
 // - MARK: private extension
 private extension MainViewController {
     func setupNavigation() {
         title = "Main"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "filter")))
+        navigationController?.navigationBar.barTintColor = .black
     }
 
     func setupBinding() {
@@ -45,7 +50,6 @@ private extension MainViewController {
                     let viewConroller = ScanViewController()
                     self?.navigationController?.pushViewController(viewConroller, animated: true)
                 }
-               
             }
             .store(in: &cancellables)
     }

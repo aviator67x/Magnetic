@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol DataManager {
     func getData() -> [WifiDataModel]
     func getMagnetism() -> CGFloat
+    func scanNetwork() -> AnyPublisher<Int, Never>
 }

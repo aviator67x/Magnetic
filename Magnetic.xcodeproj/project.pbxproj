@@ -39,6 +39,8 @@
 		A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = A2BC275F2BCC06BC0009BBCC /* scanner.json */; };
 		A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC27622BCC086B0009BBCC /* Lottie */; };
 		A2BC27652BCC5BA10009BBCC /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */; };
+		A2BC27692BCD3DCE0009BBCC /* BackButtonSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27682BCD3DCE0009BBCC /* BackButtonSettable.swift */; };
+		A2BC276B2BCD40500009BBCC /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC276A2BCD40500009BBCC /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		A2BC275F2BCC06BC0009BBCC /* scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scanner.json; sourceTree = "<group>"; };
 		A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		A2BC27682BCD3DCE0009BBCC /* BackButtonSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonSettable.swift; sourceTree = "<group>"; };
+		A2BC276A2BCD40500009BBCC /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +115,7 @@
 				A251994E2BBC3D560024210C /* App */,
 				A251995C2BBC42D70024210C /* Services */,
 				A25199662BBC54940024210C /* Extensions */,
-				A29831312BBDAA61001BD7F2 /* MainModule */,
-				A251994F2BBC3D6F0024210C /* MagneticModule */,
-				A25199692BBC6A4C0024210C /* WifiModule */,
-				A2BC27572BCBED360009BBCC /* ScanModule */,
+				A2BC27662BCD0FC40009BBCC /* Presentation */,
 				A251993B2BBC33EF0024210C /* Main.storyboard */,
 				A25199402BBC33F00024210C /* LaunchScreen.storyboard */,
 				A251993E2BBC33F00024210C /* Assets.xcassets */,
@@ -171,6 +172,7 @@
 				A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */,
 				A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */,
 				A2BC27502BBE87810009BBCC /* Array+swift.swift */,
+				A2BC27682BCD3DCE0009BBCC /* BackButtonSettable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +213,26 @@
 				A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */,
 			);
 			path = ScanModule;
+			sourceTree = "<group>";
+		};
+		A2BC27662BCD0FC40009BBCC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A29831312BBDAA61001BD7F2 /* MainModule */,
+				A251994F2BBC3D6F0024210C /* MagneticModule */,
+				A2BC27572BCBED360009BBCC /* ScanModule */,
+				A25199692BBC6A4C0024210C /* WifiModule */,
+				A2BC27672BCD100A0009BBCC /* DetailsModule */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A2BC27672BCD100A0009BBCC /* DetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				A2BC276A2BCD40500009BBCC /* DetailsView.swift */,
+			);
+			path = DetailsModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +331,9 @@
 				A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */,
 				A251995F2BBC439B0024210C /* FetchedDataManager.swift in Sources */,
 				A251996F2BBC6C390024210C /* WifiViewModel.swift in Sources */,
+				A2BC276B2BCD40500009BBCC /* DetailsView.swift in Sources */,
 				A25199682BBC5F6E0024210C /* UIView+AnchorPoint.swift in Sources */,
+				A2BC27692BCD3DCE0009BBCC /* BackButtonSettable.swift in Sources */,
 				A25199362BBC33EF0024210C /* AppDelegate.swift in Sources */,
 				A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */,
 				A25199652BBC54880024210C /* UIView+layout.swift in Sources */,

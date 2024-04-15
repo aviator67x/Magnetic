@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-final class MagneticViewController: UIViewController {
+final class MagneticViewController: UIViewController, BackButtonSettupable {
     // - MARK: Private properties
     private let magneticView = MagneticView()
     private let model = MagneticViewModel()
@@ -27,6 +27,16 @@ final class MagneticViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupBinding()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 }
 
@@ -47,13 +57,7 @@ private extension MagneticViewController {
                 case .measureMagnetism:
                     self?.model.measureMagnetism()
 
-                    self?.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                        let vc = WifiViewController()
-                        self?.navigationController?.pushViewController(vc, animated: true)
-                    }
                 case .stopMeasuring:
-                    self?.timer?.invalidate()
-                    self?.timer = nil
                     self?.magneticView.counterClockwise()
                 }
             }

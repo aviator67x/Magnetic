@@ -15,8 +15,6 @@ final class ScanViewController: UIViewController {
 
     private var cancellables = Set<AnyCancellable>()
 
-//    private var timer: Timer?
-
     // - MARK: Lifecycle
     override func loadView() {
         super.loadView()
@@ -44,7 +42,7 @@ final class ScanViewController: UIViewController {
 // - MARK: private extension
 private extension ScanViewController {
     func setupNavigationBar() {
-        navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.title = ""
     }
 
     func setupBinding() {
@@ -55,7 +53,7 @@ private extension ScanViewController {
                 }
             }
             .store(in: &cancellables)
-        
+
         model
             .percentPublisher
             .receive(on: DispatchQueue.main)

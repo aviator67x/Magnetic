@@ -39,19 +39,18 @@ final class ScanView: UIView {
             countLabel.attributedText = attributedString
         }
     }
+
     private var percents: Int = 0 {
         didSet {
             percentageLabel.text = "\(String(percents)) %"
         }
     }
     
-    
     // - MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupLayout()
-//        lottieView.play()
         setupBinding()
     }
 
@@ -67,7 +66,7 @@ final class ScanView: UIView {
 
 // - MARK: private extension
 private extension ScanView {
-    func    setupBinding() {
+    func setupBinding() {
         stopButton.tapPublisher
             .sink { [weak self] _ in
                 self?.actionSubject.send(.stopScanning)

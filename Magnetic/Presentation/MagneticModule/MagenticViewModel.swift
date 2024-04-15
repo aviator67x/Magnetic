@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class MagneticViewModel {
+    // - MARK: Private properties
     private(set) lazy var dataPublisher = dataValue.eraseToAnyPublisher()
     private lazy var dataValue = CurrentValueSubject<CGFloat, Never>(0)
 
