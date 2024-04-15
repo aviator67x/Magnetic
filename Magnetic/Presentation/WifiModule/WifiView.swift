@@ -8,6 +8,11 @@
 import Foundation
 import SnapKit
 import UIKit
+import Combine
+
+enum WifiViewActions {
+    case selectedItem(DeviceDataModel)
+}
 
 final class WifiView: UIView {
     // - MARK: Views
@@ -17,6 +22,7 @@ final class WifiView: UIView {
     private let tableView = UITableView()
     
     // - MARK: Private properties
+    private var cancellables = Set<AnyCancellable>()
     private var wifiData: [WifiDataModel] = []
     
     // - MARK: Lifecycle
@@ -88,7 +94,7 @@ private extension WifiView {
     }
 }
 
-// - MARK: private extension
+// - MARK: private extension UITableViewDataSource
 extension WifiView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wifiData.count
@@ -101,3 +107,11 @@ extension WifiView: UITableViewDataSource {
         return cell
     }
 }
+
+// - MARK: private extension UITableViewDelegate
+extension WifiView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt: IndexPath) {
+        
+    }
+}
+

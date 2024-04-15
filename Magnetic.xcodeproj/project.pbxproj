@@ -24,7 +24,7 @@
 		A25199632BBC4CFB0024210C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199622BBC4CFB0024210C /* MainViewController.swift */; };
 		A25199652BBC54880024210C /* UIView+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199642BBC54880024210C /* UIView+layout.swift */; };
 		A25199682BBC5F6E0024210C /* UIView+AnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199672BBC5F6E0024210C /* UIView+AnchorPoint.swift */; };
-		A251996B2BBC6A6E0024210C /* WifiViewController().swift in Sources */ = {isa = PBXBuildFile; fileRef = A251996A2BBC6A6E0024210C /* WifiViewController().swift */; };
+		A251996B2BBC6A6E0024210C /* WifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251996A2BBC6A6E0024210C /* WifiViewController.swift */; };
 		A251996D2BBC6B610024210C /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251996C2BBC6B610024210C /* WifiView.swift */; };
 		A251996F2BBC6C390024210C /* WifiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251996E2BBC6C390024210C /* WifiViewModel.swift */; };
 		A298312B2BBD40A7001BD7F2 /* UITableView+dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */; };
@@ -39,8 +39,10 @@
 		A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = A2BC275F2BCC06BC0009BBCC /* scanner.json */; };
 		A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC27622BCC086B0009BBCC /* Lottie */; };
 		A2BC27652BCC5BA10009BBCC /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */; };
-		A2BC27692BCD3DCE0009BBCC /* BackButtonSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27682BCD3DCE0009BBCC /* BackButtonSettable.swift */; };
 		A2BC276B2BCD40500009BBCC /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC276A2BCD40500009BBCC /* DetailsView.swift */; };
+		A2BC276D2BCD578E0009BBCC /* DeviceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC276C2BCD578E0009BBCC /* DeviceDataModel.swift */; };
+		A2BC276F2BCD5B050009BBCC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC276E2BCD5B050009BBCC /* DetailsViewController.swift */; };
+		A2BC27762BCD6AB40009BBCC /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27752BCD6AB40009BBCC /* DetailedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +64,7 @@
 		A25199622BBC4CFB0024210C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A25199642BBC54880024210C /* UIView+layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+layout.swift"; sourceTree = "<group>"; };
 		A25199672BBC5F6E0024210C /* UIView+AnchorPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AnchorPoint.swift"; sourceTree = "<group>"; };
-		A251996A2BBC6A6E0024210C /* WifiViewController().swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WifiViewController().swift"; sourceTree = "<group>"; };
+		A251996A2BBC6A6E0024210C /* WifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiViewController.swift; sourceTree = "<group>"; };
 		A251996C2BBC6B610024210C /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
 		A251996E2BBC6C390024210C /* WifiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiViewModel.swift; sourceTree = "<group>"; };
 		A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeue.swift"; sourceTree = "<group>"; };
@@ -74,8 +76,10 @@
 		A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		A2BC275F2BCC06BC0009BBCC /* scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scanner.json; sourceTree = "<group>"; };
 		A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
-		A2BC27682BCD3DCE0009BBCC /* BackButtonSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonSettable.swift; sourceTree = "<group>"; };
 		A2BC276A2BCD40500009BBCC /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		A2BC276C2BCD578E0009BBCC /* DeviceDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataModel.swift; sourceTree = "<group>"; };
+		A2BC276E2BCD5B050009BBCC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		A2BC27752BCD6AB40009BBCC /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 				A25199582BBC3E6D0024210C /* WifiDataModel.swift */,
 				A25199522BBC3DEB0024210C /* MockedDataManager.swift */,
 				A251995E2BBC439B0024210C /* FetchedDataManager.swift */,
+				A2BC276C2BCD578E0009BBCC /* DeviceDataModel.swift */,
 			);
 			path = DataService;
 			sourceTree = "<group>";
@@ -172,7 +177,6 @@
 				A298312A2BBD40A7001BD7F2 /* UITableView+dequeue.swift */,
 				A298312C2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift */,
 				A2BC27502BBE87810009BBCC /* Array+swift.swift */,
-				A2BC27682BCD3DCE0009BBCC /* BackButtonSettable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -180,7 +184,7 @@
 		A25199692BBC6A4C0024210C /* WifiModule */ = {
 			isa = PBXGroup;
 			children = (
-				A251996A2BBC6A6E0024210C /* WifiViewController().swift */,
+				A251996A2BBC6A6E0024210C /* WifiViewController.swift */,
 				A251996C2BBC6B610024210C /* WifiView.swift */,
 				A251996E2BBC6C390024210C /* WifiViewModel.swift */,
 				A298312E2BBD423C001BD7F2 /* Subviews */,
@@ -231,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				A2BC276A2BCD40500009BBCC /* DetailsView.swift */,
+				A2BC276E2BCD5B050009BBCC /* DetailsViewController.swift */,
+				A2BC27752BCD6AB40009BBCC /* DetailedView.swift */,
 			);
 			path = DetailsModule;
 			sourceTree = "<group>";
@@ -325,17 +331,19 @@
 				A251994D2BBC3D270024210C /* MagneticView.swift in Sources */,
 				A2BC275B2BCBF0AA0009BBCC /* ScanViewController.swift in Sources */,
 				A2BC27652BCC5BA10009BBCC /* ScanViewModel.swift in Sources */,
-				A251996B2BBC6A6E0024210C /* WifiViewController().swift in Sources */,
+				A251996B2BBC6A6E0024210C /* WifiViewController.swift in Sources */,
 				A298312D2BBD4104001BD7F2 /* UITableView+reusableIdentifier.swift in Sources */,
 				A29831332BBDAA87001BD7F2 /* MainView.swift in Sources */,
 				A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */,
 				A251995F2BBC439B0024210C /* FetchedDataManager.swift in Sources */,
+				A2BC27762BCD6AB40009BBCC /* DetailedView.swift in Sources */,
 				A251996F2BBC6C390024210C /* WifiViewModel.swift in Sources */,
+				A2BC276F2BCD5B050009BBCC /* DetailsViewController.swift in Sources */,
 				A2BC276B2BCD40500009BBCC /* DetailsView.swift in Sources */,
 				A25199682BBC5F6E0024210C /* UIView+AnchorPoint.swift in Sources */,
-				A2BC27692BCD3DCE0009BBCC /* BackButtonSettable.swift in Sources */,
 				A25199362BBC33EF0024210C /* AppDelegate.swift in Sources */,
 				A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */,
+				A2BC276D2BCD578E0009BBCC /* DeviceDataModel.swift in Sources */,
 				A25199652BBC54880024210C /* UIView+layout.swift in Sources */,
 				A25199512BBC3DCF0024210C /* MagenticViewModel.swift in Sources */,
 				A2BC27592BCBED5B0009BBCC /* ScanView.swift in Sources */,

@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-final class MagneticViewController: UIViewController, BackButtonSettupable {
+final class MagneticViewController: UIViewController {
     // - MARK: Private properties
     private let magneticView = MagneticView()
     private let model = MagneticViewModel()
