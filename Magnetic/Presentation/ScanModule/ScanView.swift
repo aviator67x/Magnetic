@@ -20,8 +20,7 @@ final class ScanView: UIView {
     // - MARK: Views
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
-    private let scanImageView = UIImageView()
-    private var lottieView = LottieAnimationView()
+    private var lottieView = LottieAnimationView(name: "scanner")
     private let percentageLabel = UILabel()
     private let countLabel = UILabel()
     private let countTitleLabel = UILabel()
@@ -33,7 +32,7 @@ final class ScanView: UIView {
     private var cancellables = Set<AnyCancellable>()
     private let screenSize: CGRect = UIScreen.main.bounds
     private var subtitle: String = "TLind_246_Ip"
-    private var count: String = "26" {
+    private var count: String = "23" {
         didSet {
             let attributedString = createAttributedString()
             countLabel.attributedText = attributedString
@@ -52,6 +51,7 @@ final class ScanView: UIView {
         setupViews()
         setupLayout()
         setupBinding()
+        lottieView.play()
     }
 
     @available(*, unavailable)
@@ -85,9 +85,9 @@ private extension ScanView {
         subTitleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         subTitleLabel.textColor = UIColor(named: "purple")
         
-        let gifURL: String = "https://s3-alpha-sig.figma.com/img/ec51/0138/18194cf01a9c50335fcc79fa746cd9e9?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jqWsllJCr67-34-Lh8PH~hPS3vFlGKfGvs2HYIXJEHeuLz0gQ3IM6ClChirRP8zEcVUARRQH8QxrijQroMLNrMyakj7f8ohBoAbczjp4V01R51nybakxqXTFyjp1EMjx64uGIHMOYfMgXfnU4B-7RrnGCcEAY1PmBKxd6xIm0UhZPOjP8qO70kRONDExmYLzyaRO3YbB0WcTRVTnir3U0GfIpoP~2X~La-7djpnLxIMVCp~pNLs68i8Wd5lcmTI~7~TmHH0dRd-N2BVOVEfAreHAF4d3uMZE-nb0Lrd2L2Z2sHz8aIu-LIzO9PcOxY79iwGhqDQUQd8JVa6LTe68ag__"
-        let url = URL(string: gifURL)
-        scanImageView.kf.setImage(with: url)
+        lottieView.contentMode = .scaleAspectFit
+        lottieView.loopMode = .loop
+//        lottieView.animationSpeed = 1
         
         percentageLabel.text = "\(String(percents)) %"
         percentageLabel.font = UIFont.systemFont(ofSize: 17)
@@ -118,11 +118,11 @@ private extension ScanView {
     }
 
     func setupLayout() {
-        addSubview(scanImageView) {
+        addSubview(lottieView) {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().offset(-20)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(scanImageView.snp.width)
+            $0.height.equalTo(lottieView.snp.width)
         }
         
         addSubview(percentageLabel) {
@@ -133,7 +133,7 @@ private extension ScanView {
         
         addSubview(subTitleLabel) {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(scanImageView.snp.top).offset(-70)
+            $0.bottom.equalTo(lottieView.snp.top).offset(-70)
         }
         
         addSubview(titleLabel) {
@@ -143,7 +143,7 @@ private extension ScanView {
         
         addSubview(countLabel) {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(scanImageView.snp.bottom).offset(20)
+            $0.top.equalTo(lottieView.snp.bottom).offset(20)
         }
         
         addSubview(stopButton) {

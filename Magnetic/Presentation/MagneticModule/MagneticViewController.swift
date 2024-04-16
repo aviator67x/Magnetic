@@ -65,7 +65,7 @@ private extension MagneticViewController {
 
         model
             .dataPublisher
-            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
+            .debounce(for: .milliseconds(1000), scheduler: DispatchQueue.main)
             .receive(on: DispatchQueue.main)
             .dropFirst()
             .sink { [weak self] value in

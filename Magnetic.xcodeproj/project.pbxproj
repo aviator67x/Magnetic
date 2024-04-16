@@ -35,7 +35,6 @@
 		A2BC27512BBE87810009BBCC /* Array+swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27502BBE87810009BBCC /* Array+swift.swift */; };
 		A2BC27592BCBED5B0009BBCC /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27582BCBED5B0009BBCC /* ScanView.swift */; };
 		A2BC275B2BCBF0AA0009BBCC /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */; };
-		A2BC275E2BCBF7D60009BBCC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC275D2BCBF7D60009BBCC /* Kingfisher */; };
 		A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = A2BC275F2BCC06BC0009BBCC /* scanner.json */; };
 		A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC27622BCC086B0009BBCC /* Lottie */; };
 		A2BC27652BCC5BA10009BBCC /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */; };
@@ -87,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2BC275E2BCBF7D60009BBCC /* Kingfisher in Frameworks */,
 				A29831382BBDE45A001BD7F2 /* CombineCocoa in Frameworks */,
 				A251994B2BBC3CA50024210C /* SnapKit in Frameworks */,
 				A2BC27632BCC086B0009BBCC /* Lottie in Frameworks */,
@@ -268,7 +266,6 @@
 			packageProductDependencies = (
 				A251994A2BBC3CA50024210C /* SnapKit */,
 				A29831372BBDE45A001BD7F2 /* CombineCocoa */,
-				A2BC275D2BCBF7D60009BBCC /* Kingfisher */,
 				A2BC27622BCC086B0009BBCC /* Lottie */,
 			);
 			productName = Magnetic;
@@ -302,7 +299,6 @@
 			packageReferences = (
 				A25199492BBC3CA50024210C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A29831362BBDE45A001BD7F2 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
-				A2BC275C2BCBF7D60009BBCC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A2BC27612BCC086B0009BBCC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A25199332BBC33EF0024210C /* Products */;
@@ -598,14 +594,6 @@
 				minimumVersion = 0.4.1;
 			};
 		};
-		A2BC275C2BCBF7D60009BBCC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		A2BC27612BCC086B0009BBCC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -626,11 +614,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A29831362BBDE45A001BD7F2 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
-		};
-		A2BC275D2BCBF7D60009BBCC /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A2BC275C2BCBF7D60009BBCC /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		A2BC27622BCC086B0009BBCC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
