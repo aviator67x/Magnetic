@@ -51,7 +51,6 @@ private extension MagneticViewController {
     func setupBinding() {
         magneticView
             .actionPublisher
-            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
             .sink { [weak self] action in
                 switch action {
                 case .measureMagnetism:
@@ -65,7 +64,6 @@ private extension MagneticViewController {
 
         model
             .dataPublisher
-            .debounce(for: .milliseconds(1000), scheduler: DispatchQueue.main)
             .receive(on: DispatchQueue.main)
             .dropFirst()
             .sink { [weak self] value in

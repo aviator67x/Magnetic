@@ -34,7 +34,7 @@ final class WifiViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
@@ -60,7 +60,7 @@ private extension WifiViewController {
                 }
             }
             .store(in: &cancellables)
-        
+
         model.networkDataPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in

@@ -20,11 +20,12 @@ final class DetailsViewController: UIViewController {
         self.detailsView = DetailsView(deviceData: deviceData)
         super.init(nibName: nil, bundle: nil)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         super.loadView()
         view = detailsView
@@ -40,7 +41,7 @@ final class DetailsViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
@@ -54,13 +55,13 @@ private extension DetailsViewController {
         title = "Device Details"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
+
         let myimage = UIImage(systemName: "chevron.backward")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: myimage, style: .plain, target: self, action: #selector(buttonAction))
     }
-    
+
     @objc
     func buttonAction() {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }

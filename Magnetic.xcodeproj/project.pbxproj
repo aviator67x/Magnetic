@@ -159,9 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				A25199602BBC43D30024210C /* DataManagerProtocol.swift */,
-				A25199582BBC3E6D0024210C /* WifiDataModel.swift */,
 				A25199522BBC3DEB0024210C /* MockedDataManager.swift */,
 				A251995E2BBC439B0024210C /* FetchedDataManager.swift */,
+				A25199582BBC3E6D0024210C /* WifiDataModel.swift */,
 				A2BC276C2BCD578E0009BBCC /* DeviceDataModel.swift */,
 			);
 			path = DataService;
@@ -210,8 +210,8 @@
 		A2BC27572BCBED360009BBCC /* ScanModule */ = {
 			isa = PBXGroup;
 			children = (
-				A2BC27582BCBED5B0009BBCC /* ScanView.swift */,
 				A2BC275A2BCBF0AA0009BBCC /* ScanViewController.swift */,
+				A2BC27582BCBED5B0009BBCC /* ScanView.swift */,
 				A2BC27642BCC5BA10009BBCC /* ScanViewModel.swift */,
 			);
 			path = ScanModule;
@@ -232,8 +232,8 @@
 		A2BC27672BCD100A0009BBCC /* DetailsModule */ = {
 			isa = PBXGroup;
 			children = (
-				A2BC276A2BCD40500009BBCC /* DetailsView.swift */,
 				A2BC276E2BCD5B050009BBCC /* DetailsViewController.swift */,
+				A2BC276A2BCD40500009BBCC /* DetailsView.swift */,
 				A2BC27772BCDD7570009BBCC /* Subviews */,
 			);
 			path = DetailsModule;

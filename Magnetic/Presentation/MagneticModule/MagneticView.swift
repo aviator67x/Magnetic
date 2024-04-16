@@ -43,6 +43,7 @@ final class MagneticView: UIView {
     // - MARK: Private properties
     private(set) lazy var actionPublisher = actionSubject.eraseToAnyPublisher()
     private let actionSubject = PassthroughSubject<MagneticViewActions, Never>()
+    private var cancellables = Set<AnyCancellable>()
     private let screenSize: CGRect = UIScreen.main.bounds
     private var buttonState: ButtonState = .search
 
@@ -51,28 +52,12 @@ final class MagneticView: UIView {
         super.init(frame: frame)
         setupViews()
         setupLayout()
+        setupBinding()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    // - MARK: Objc
-    @objc
-    func onButtonTap() {
-        switch buttonState {
-        case .search:
-            actionSubject.send(.measureMagnetism)
-
-        case .stop:
-            actionSubject.send(.stopMeasuring)
-            counterClockwise()
-        }
-
-        buttonState.toggle()
-
-        button.setTitle(buttonState == .search ? "Seearch" : "Stop", for: .normal)
     }
 
     func rotateArrow(angle: CGFloat) {
@@ -83,7 +68,7 @@ final class MagneticView: UIView {
     }
 
     func counterClockwise() {
-        UIImageView.animate(withDuration: 0.5) {
+        UIImageView.animate(withDuration: 1) {
             self.arrowView.transform = .identity
         }
         magnetismLabel.text = "Search checking"
@@ -97,6 +82,26 @@ private extension MagneticView {
             let transformation = CGAffineTransform(rotationAngle: angle)
             self.arrowView.transform = transformation
         }
+    }
+
+    func setupBinding() {
+        button.tapPublisher
+            .sink { [weak self] in
+                switch self?.buttonState {
+                case .search:
+                    self?.actionSubject.send(.measureMagnetism)
+
+                case .stop:
+                    self?.actionSubject.send(.stopMeasuring)
+                case .none:
+                    break
+                }
+
+                self?.buttonState.toggle()
+
+                self?.button.setTitle(self?.buttonState == .search ? "Seearch" : "Stop", for: .normal)
+            }
+            .store(in: &cancellables)
     }
 
     func setupViews() {
@@ -115,7 +120,6 @@ private extension MagneticView {
         magnetismLabel.font = UIFont.systemFont(ofSize: 17)
         magnetismLabel.textColor = .white
 
-        button.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
         button.backgroundColor = UIColor(named: "purple")
         button.setTitle(buttonState == .search ? "Search" : "Stop", for: .normal)
         button.layer.cornerRadius = 25

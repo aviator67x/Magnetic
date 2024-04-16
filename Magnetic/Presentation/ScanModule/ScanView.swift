@@ -7,7 +7,6 @@
 
 import Combine
 import Foundation
-import Kingfisher
 import Lottie
 import SnapKit
 import UIKit
@@ -87,7 +86,6 @@ private extension ScanView {
         
         lottieView.contentMode = .scaleAspectFit
         lottieView.loopMode = .loop
-//        lottieView.animationSpeed = 1
         
         percentageLabel.text = "\(String(percents)) %"
         percentageLabel.font = UIFont.systemFont(ofSize: 17)

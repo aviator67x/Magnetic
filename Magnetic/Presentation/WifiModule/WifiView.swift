@@ -125,6 +125,6 @@ extension WifiView: UITableViewDelegate {
                                          macAddress: data.macAddress,
                                          hostName: data.hostName,
                                          isConnected: data.isAvailable)
-        self.actionSubject.send(.selectedItem(deviceData))
+        actionSubject.send(.selectedItem(deviceData))
     }
 }

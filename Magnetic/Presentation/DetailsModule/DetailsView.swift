@@ -19,7 +19,7 @@ final class DetailsView: UIView {
     private var connectionView = DetailedView(name: "", value: "")
     private var ipView = DetailedView(name: "", value: "")
     private var mackView = DetailedView(name: "", value: "")
-    private var haostView = DetailedView(name: "", value: "")
+    private var hostView = DetailedView(name: "", value: "")
     
     // - MARK: Private properties
     private let screenSize: CGRect = UIScreen.main.bounds
@@ -69,17 +69,10 @@ private extension DetailsView {
         
         mackView = DetailedView(name: "MAC Address", value: deviceData.macAddress)
         
-        haostView = DetailedView(name: "Hostname", value: deviceData.hostName)
+        hostView = DetailedView(name: "Hostname", value: deviceData.hostName)
     }
     
     func setupLayout() {
-        func separator() -> UIView {
-            let separatorView = UIView()
-            separatorView.backgroundColor = .white
-            separatorView.alpha = 0.5
-            return separatorView
-        }
-        
         addSubview(headerImageView) {
             $0.top.equalToSuperview().offset(50)
             $0.leading.trailing.equalToSuperview()
@@ -144,9 +137,16 @@ private extension DetailsView {
             $0.height.equalTo(0.5)
         }
         
-        addSubview(haostView) {
+        addSubview(hostView) {
             $0.top.equalTo(mackView.snp.bottom).offset(0.5)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    func separator() -> UIView {
+        let separatorView = UIView()
+        separatorView.backgroundColor = .white
+        separatorView.alpha = 0.5
+        return separatorView
     }
 }

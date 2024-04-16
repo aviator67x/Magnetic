@@ -9,14 +9,12 @@ import UIKit
 
 final class WifiTableCell: UITableViewCell {
     // MARK: - SubViews
-
     private let nameLabel = UILabel()
     private let addressLabel = UILabel()
     private let checkmarkImageView = UIImageView()
     private let icon = UIImageView()
 
     // MARK: - Life cycle
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -38,7 +36,6 @@ final class WifiTableCell: UITableViewCell {
 }
 
 // MARK: - private extension
-
 private extension WifiTableCell {
     func setupUI() {
         selectionStyle = .none
