@@ -10,7 +10,6 @@
 		A25199362BBC33EF0024210C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199352BBC33EF0024210C /* AppDelegate.swift */; };
 		A25199382BBC33EF0024210C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199372BBC33EF0024210C /* SceneDelegate.swift */; };
 		A251993A2BBC33EF0024210C /* MagneticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25199392BBC33EF0024210C /* MagneticViewController.swift */; };
-		A251993D2BBC33EF0024210C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A251993B2BBC33EF0024210C /* Main.storyboard */; };
 		A251993F2BBC33F00024210C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A251993E2BBC33F00024210C /* Assets.xcassets */; };
 		A25199422BBC33F00024210C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25199402BBC33F00024210C /* LaunchScreen.storyboard */; };
 		A251994B2BBC3CA50024210C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A251994A2BBC3CA50024210C /* SnapKit */; };
@@ -49,7 +48,6 @@
 		A25199352BBC33EF0024210C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25199372BBC33EF0024210C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A25199392BBC33EF0024210C /* MagneticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticViewController.swift; sourceTree = "<group>"; };
-		A251993C2BBC33EF0024210C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A251993E2BBC33F00024210C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A25199412BBC33F00024210C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A25199432BBC33F00024210C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				A251995C2BBC42D70024210C /* Services */,
 				A25199662BBC54940024210C /* Extensions */,
 				A2BC27662BCD0FC40009BBCC /* Presentation */,
-				A251993B2BBC33EF0024210C /* Main.storyboard */,
 				A25199402BBC33F00024210C /* LaunchScreen.storyboard */,
 				A2CED1E62C075CE40092C050 /* Resources */,
 				A25199432BBC33F00024210C /* Info.plist */,
@@ -327,7 +324,6 @@
 				A251993F2BBC33F00024210C /* Assets.xcassets in Resources */,
 				A25199572BBC3E5E0024210C /* WiFiData.json in Resources */,
 				A2BC27602BCC06BC0009BBCC /* scanner.json in Resources */,
-				A251993D2BBC33EF0024210C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,14 +367,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A251993B2BBC33EF0024210C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A251993C2BBC33EF0024210C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A25199402BBC33F00024210C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -513,10 +501,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H4CARJMF9X;
 				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = Magnetic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -542,10 +531,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H4CARJMF9X;
 				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = Magnetic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

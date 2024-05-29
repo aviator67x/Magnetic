@@ -66,7 +66,7 @@ private extension WifiView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(WifiTableCell.self)
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(named: "tableBackground")
         tableView.separatorColor = .gray
         tableView.separatorStyle = .singleLine
@@ -96,6 +96,10 @@ private extension WifiView {
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
+    
+//    func setDelegate(vc: UIViewController) {
+//        tableView.delegate = self
+//    }
 }
 
 // - MARK: private extension UITableViewDataSource
@@ -111,6 +115,10 @@ extension WifiView: UITableViewDataSource {
         }
         cell.setup(model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 
