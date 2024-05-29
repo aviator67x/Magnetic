@@ -5,14 +5,9 @@
 //  Created by Andrew Kasilov on 02.04.2024.
 //
 
-import Combine
 import Foundation
 import SnapKit
 import UIKit
-
-enum WifiViewActions {
-    case selectedItem(DeviceDataModel)
-}
 
 final class WifiView: UIView {
     // - MARK: Views
@@ -20,12 +15,6 @@ final class WifiView: UIView {
     private let titleLabel = UILabel()
     private let nameLabel = UILabel()
     private let tableView = UITableView()
-    
-    // - MARK: Private properties
-    private(set) lazy var actionPublisher = actionSubject.eraseToAnyPublisher()
-    private let actionSubject = PassthroughSubject<WifiViewActions, Never>()
-    private var cancellables = Set<AnyCancellable>()
-    private var wifiData: [WifiDataModel] = []
     
     // - MARK: Lifecycle
     override init(frame: CGRect) {
@@ -39,9 +28,16 @@ final class WifiView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateTable(_ data: [WifiDataModel]) {
-        wifiData = data
+    func updateTable() {
         tableView.reloadData()
+    }
+    
+    func setTableDelelagate(_ delegate: UITableViewDelegate) {
+        tableView.delegate = delegate
+    }
+    
+    func setTable(_ dataSource: UITableViewDataSource) {
+        tableView.dataSource = dataSource
     }
 }
 
@@ -63,10 +59,8 @@ private extension WifiView {
         nameLabel.textColor = .white
         nameLabel.alpha = 0.5
         
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(WifiTableCell.self)
-//        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(named: "tableBackground")
         tableView.separatorColor = .gray
         tableView.separatorStyle = .singleLine
@@ -95,44 +89,5 @@ private extension WifiView {
             $0.top.equalTo(nameLabel.snp.bottom).offset(25)
             $0.leading.trailing.bottom.equalToSuperview()
         }
-    }
-    
-//    func setDelegate(vc: UIViewController) {
-//        tableView.delegate = self
-//    }
-}
-
-// - MARK: private extension UITableViewDataSource
-extension WifiView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wifiData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: WifiTableCell = tableView.dequeueReusableCell(for: indexPath)
-        guard let model = wifiData[safe: indexPath.row] else {
-            return UITableViewCell()
-        }
-        cell.setup(model)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-}
-
-// - MARK: private extension UITableViewDelegate
-extension WifiView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt: IndexPath) {
-        guard let data = wifiData[safe: didSelectRowAt.row] else {
-            return
-        }
-        let deviceData = DeviceDataModel(connectionType: data.type,
-                                         ipAddress: data.address,
-                                         macAddress: data.macAddress,
-                                         hostName: data.hostName,
-                                         isConnected: data.isAvailable)
-        actionSubject.send(.selectedItem(deviceData))
     }
 }

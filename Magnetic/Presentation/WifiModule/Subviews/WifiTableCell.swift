@@ -55,24 +55,27 @@ private extension WifiTableCell {
     func setupLayout() {
         contentView.addSubview(icon) {
             $0.leading.equalToSuperview().offset(16)
-            $0.top.bottom.equalToSuperview().inset(10)
+            $0.top.equalToSuperview().inset(10)
+            $0.bottom.equalToSuperview().inset(10).priority(.high)
             $0.size.equalTo(50)
         }
+        
+        contentView.addSubview(checkmarkImageView) {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.width.equalTo(10)
+            $0.centerY.equalToSuperview()
+        }
+        
         contentView.addSubview(nameLabel) {
             $0.leading.equalTo(icon.snp.trailing).offset(20)
-            $0.height.equalTo(20)
             $0.top.equalTo(icon.snp.top)
+            $0.trailing.equalTo(checkmarkImageView.snp.leading)
         }
 
         contentView.addSubview(addressLabel) {
             $0.leading.equalTo(icon.snp.trailing).offset(20)
             $0.bottom.equalTo(icon.snp.bottom)
-            $0.height.equalTo(20)
-        }
-
-        contentView.addSubview(checkmarkImageView) {
-            $0.trailing.equalToSuperview().inset(16)
-            $0.centerY.equalToSuperview()
+            $0.trailing.equalTo(checkmarkImageView.snp.leading)
         }
     }
 }
